@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FE0E76B4-D3C6-4A72-BE81-2CA1F34DE835}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RiseSharp.Core</RootNamespace>
+    <AssemblyName>RiseSharp.Core</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Api\IRiseNodeApi.cs" />
+    <Compile Include="Api\IRisePeerApi.cs" />
+    <Compile Include="Api\Messages\Common\BaseRequest.cs" />
+    <Compile Include="Api\Messages\Common\BaseResponse.cs" />
+    <Compile Include="Api\Messages\Node\AccountBalanceResponse.cs" />
+    <Compile Include="Api\Messages\Node\AccountDelegateAddRequest.cs" />
+    <Compile Include="Api\Messages\Node\AccountDelegateAddResponse.cs" />
+    <Compile Include="Api\Messages\Node\AccountDelegatesResponse.cs" />
+    <Compile Include="Api\Messages\Node\AccountGeneratePublickeyRequest.cs" />
+    <Compile Include="Api\Messages\Node\AccountGeneratePublicKeyResponse.cs" />
+    <Compile Include="Api\Messages\Node\AccountOpenResponse.cs" />
+    <Compile Include="Api\Messages\Node\AccountPublickeyResponse.cs" />
+    <Compile Include="Api\Messages\Node\AccountRequest.cs" />
+    <Compile Include="Api\Messages\Node\AccountResponse.cs" />
+    <Compile Include="Api\Messages\Node\BlockFeesResponse.cs" />
+    <Compile Include="Api\Messages\Node\BlockHeightResponse.cs" />
+    <Compile Include="Api\Messages\Node\BlockMilestoneResponse.cs" />
+    <Compile Include="Api\Messages\Node\BlockNethashResponse.cs" />
+    <Compile Include="Api\Messages\Node\BlockRequest.cs" />
+    <Compile Include="Api\Messages\Node\BlockResponse.cs" />
+    <Compile Include="Api\Messages\Node\BlockRewardResponse.cs" />
+    <Compile Include="Api\Messages\Node\BlocksRequest.cs" />
+    <Compile Include="Api\Messages\Node\BlocksResponse.cs" />
+    <Compile Include="Api\Messages\Node\BlockStatusResponse.cs" />
+    <Compile Include="Api\Messages\Node\BlockSupplyResponse.cs" />
+    <Compile Include="Api\Messages\Node\DelegateAddRequest.cs" />
+    <Compile Include="Api\Messages\Node\DelegateAddResponse.cs" />
+    <Compile Include="Api\Messages\Node\DelegateForgingAccountRequest.cs" />
+    <Compile Include="Api\Messages\Node\DelegateForgingAccountResponse.cs" />
+    <Compile Include="Api\Messages\Node\DelegateRequest.cs" />
+    <Compile Include="Api\Messages\Node\DelegateResponse.cs" />
+    <Compile Include="Api\Messages\Node\DelegatesResponse.cs" />
+    <Compile Include="Api\Messages\Node\DelegateVotersRequest.cs" />
+    <Compile Include="Api\Messages\Node\DelegateVotersResponse.cs" />
+    <Compile Include="Api\Messages\Node\FeeResponse.cs" />
+    <Compile Include="Api\Messages\Node\LoaderStatusResponse.cs" />
+    <Compile Include="Api\Messages\Node\LoaderStatusSyncResponse.cs" />
+    <Compile Include="Api\Messages\Node\MultiSignaturesAccountsRequest.cs" />
+    <Compile Include="Api\Messages\Node\MultiSignaturesAccountsResponse.cs" />
+    <Compile Include="Api\Messages\Node\MultiSignaturesAddRequest.cs" />
+    <Compile Include="Api\Messages\Node\MultiSignaturesAddResponse.cs" />
+    <Compile Include="Api\Messages\Node\MultiSignaturesPendingRequest.cs" />
+    <Compile Include="Api\Messages\Node\MultiSignaturesPendingResponse.cs" />
+    <Compile Include="Api\Messages\Node\MultiSignaturesSignRequest.cs" />
+    <Compile Include="Api\Messages\Node\MultiSignaturesSignResponse.cs" />
+    <Compile Include="Api\Messages\Node\OpenAccountRequest.cs" />
+    <Compile Include="Api\Messages\Node\PeerRequest.cs" />
+    <Compile Include="Api\Messages\Node\PeerResponse.cs" />
+    <Compile Include="Api\Messages\Node\PeersResponse.cs" />
+    <Compile Include="Api\Messages\Node\SignatureAddRequest.cs" />
+    <Compile Include="Api\Messages\Node\SignatureAddResponse.cs" />
+    <Compile Include="Api\Messages\Node\TransactionAddRequest.cs" />
+    <Compile Include="Api\Messages\Node\TransactionAddResponse.cs" />
+    <Compile Include="Api\Messages\Node\TransactionRequest.cs" />
+    <Compile Include="Api\Messages\Node\TransactionResponse.cs" />
+    <Compile Include="Api\Messages\Node\TransactionsRequest.cs" />
+    <Compile Include="Api\Messages\Node\TransactionsResponse.cs" />
+    <Compile Include="Api\Messages\Node\UnconfirmedTransactionsRequest.cs" />
+    <Compile Include="Api\Messages\Node\VersionResponse.cs" />
+    <Compile Include="Api\Messages\Peer\PeerBaseRequest.cs" />
+    <Compile Include="Api\Messages\Peer\PeerBlocksResponse.cs" />
+    <Compile Include="Api\Messages\Peer\PeerHeightResponse.cs" />
+    <Compile Include="Api\Messages\Peer\PeerListResponse.cs" />
+    <Compile Include="Api\Messages\Peer\PeerTransactionsRequest.cs" />
+    <Compile Include="Api\Messages\Peer\PeerTransactionsResponse.cs" />
+    <Compile Include="Api\Models\Account.cs" />
+    <Compile Include="Api\Models\ApiInfo.cs" />
+    <Compile Include="Api\Models\Asset.cs" />
+    <Compile Include="Api\Models\Block.cs" />
+    <Compile Include="Api\Models\Delegate.cs" />
+    <Compile Include="Api\Models\Fees.cs" />
+    <Compile Include="Api\Models\HeaderValue.cs" />
+    <Compile Include="Api\Models\Peer.cs" />
+    <Compile Include="Api\Models\PeerBlock.cs" />
+    <Compile Include="Api\Models\Transaction.cs" />
+    <Compile Include="Api\RiseNodeApi.cs" />
+    <Compile Include="Api\RisePeerApi.cs" />
+    <Compile Include="Attributes\HeaderValueAttribute.cs" />
+    <Compile Include="Attributes\QueryParamAttribute.cs" />
+    <Compile Include="Common\Account.cs" />
+    <Compile Include="Common\Address.cs" />
+    <Compile Include="Common\Asset.cs" />
+    <Compile Include="Common\Block.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\Dapp.cs" />
+    <Compile Include="Common\DappAsset.cs" />
+    <Compile Include="Common\DappConfig.cs" />
+    <Compile Include="Common\DappResult.cs" />
+    <Compile Include="Common\DappTransactionBlock.cs" />
+    <Compile Include="Common\DelegatesAsset.cs" />
+    <Compile Include="Common\DelegatesAssetCollection.cs" />
+    <Compile Include="Common\DelegateUsername.cs" />
+    <Compile Include="Common\DelegateUsernameAsset.cs" />
+    <Compile Include="Common\DelegateVote.cs" />
+    <Compile Include="Common\DelegateVoteAsset.cs" />
+    <Compile Include="Common\GenesisBlock.cs" />
+    <Compile Include="Common\HttpOptions.cs" />
+    <Compile Include="Common\IAsset.cs" />
+    <Compile Include="Common\KeyPair.cs" />
+    <Compile Include="Common\Peer.cs" />
+    <Compile Include="Common\BaseObject.cs" />
+    <Compile Include="Common\Transaction.cs" />
+    <Compile Include="Common\TransactionType.cs" />
+    <Compile Include="Exceptions\DappException.cs" />
+    <Compile Include="Exceptions\RiseSharpException.cs" />
+    <Compile Include="Extensions\CommonExtensions.cs" />
+    <Compile Include="Extensions\HttpExtensions.cs" />
+    <Compile Include="Helpers\AccountHelper.cs" />
+    <Compile Include="Helpers\BlockHelper.cs" />
+    <Compile Include="Helpers\CommonHelper.cs" />
+    <Compile Include="Helpers\CryptoHelper.cs" />
+    <Compile Include="Helpers\DappHelper.cs" />
+    <Compile Include="Helpers\HttpHelper.cs" />
+    <Compile Include="Helpers\PeerHelper.cs" />
+    <Compile Include="Helpers\TransactionHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="NBitcoin, Version=3.0.0.34, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NBitcoin.3.0.0.34\lib\portable-net45+win+wpa81+Xamarin.iOS10+MonoAndroid10+MonoTouch10\NBitcoin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NBitcoin.BouncyCastle, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NBitcoin.3.0.0.34\lib\portable-net45+win+wpa81+Xamarin.iOS10+MonoAndroid10+MonoTouch10\NBitcoin.BouncyCastle.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chaos.NaCl.PCL\Chaos.NaCl.PCL.csproj">
+      <Project>{56a46349-ef5a-48ac-a6f0-ca00319f6014}</Project>
+      <Name>Chaos.NaCl.PCL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
