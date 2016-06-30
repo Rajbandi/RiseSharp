@@ -203,11 +203,11 @@ IRisePeerApi  _api = new RisePeerApi(new ApiInfo
  var response = await _api.GetPeerBlocksAsync();
  
  //Send transaction
- var response = await _api.SendTransaction(new Transaction(){ Type = TransactionType.Send,  ... });
+ var response = await _api.SendTransactionAsync(new Transaction(){ Type = TransactionType.Send,  ... });
  
  
  //Vote transaction
- var response = await _api.VoteTransaction(new Transaciton({ Type = TransactionType.Vote, ....});
+ var response = await _api.SendTransactionAsync(new Transaciton({ Type = TransactionType.Vote, ....});
  
 ```
 
