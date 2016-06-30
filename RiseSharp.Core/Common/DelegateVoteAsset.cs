@@ -14,6 +14,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using RiseSharp.Core.Extensions;
 
 namespace RiseSharp.Core.Common
 {
@@ -30,10 +31,8 @@ namespace RiseSharp.Core.Common
 			{
 				using (BinaryWriter writer = new BinaryWriter(stream))
 				{
-					foreach (var vote in Votes)
-					{
-						writer.Write(vote);
-					}
+				    var votes = Encoding.UTF8.GetBytes(string.Join("", Votes.ToArray()));
+                    writer.Write(votes);
 				}
 				return stream.ToArray();
 			}

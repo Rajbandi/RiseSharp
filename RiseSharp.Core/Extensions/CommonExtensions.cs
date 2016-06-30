@@ -65,5 +65,20 @@ namespace RiseSharp.Core.Extensions
         {
             return new Base64Encoder().DecodeData(str);
         }
+
+        public static int ToUnixTimeInSeconds(this DateTime dateTime)
+        {
+            var dt = (dateTime.Kind != DateTimeKind.Utc) ? dateTime.ToUniversalTime() : dateTime;
+            var epochTime = new DateTime(1970,1,1,0,0,0, DateTimeKind.Utc);
+            var seconds = (int)(dt - epochTime).TotalSeconds;
+            return seconds;
+        }
+
+        public static DateTime FromUnixTimeSeconds(this int unixTimeInSeconds)
+        {
+            var epochTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            return epochTime.AddSeconds(unixTimeInSeconds);
+        }
+
     }
 }

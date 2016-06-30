@@ -105,6 +105,17 @@ namespace RiseSharp.Tests
 
         }
 
+        [Test]
+        public void TestTransactionTimes()
+        {
+            var time = TransactionHelper.GetUnixTransactionTime();
+            Debug.WriteLine(time);
+
+            var date = TransactionHelper.GetTransactionTime(time);
+            Debug.WriteLine(date.ToLocalTime());
+            Assert.IsTrue(date.ToShortDateString() == DateTime.Now.ToShortDateString());
+        }
+
         //[Test]
         //public void TestByteSequenceWithRiseJs()
         //{

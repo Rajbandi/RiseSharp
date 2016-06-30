@@ -134,6 +134,7 @@
     <Compile Include="Common\KeyPair.cs" />
     <Compile Include="Common\Peer.cs" />
     <Compile Include="Common\BaseObject.cs" />
+    <Compile Include="Common\SignatureAsset.cs" />
     <Compile Include="Common\Transaction.cs" />
     <Compile Include="Common\TransactionType.cs" />
     <Compile Include="Exceptions\DappException.cs" />

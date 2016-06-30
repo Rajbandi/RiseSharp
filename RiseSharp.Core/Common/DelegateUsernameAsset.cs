@@ -29,7 +29,7 @@ namespace RiseSharp.Core.Common
             {
                 using (BinaryWriter writer = new BinaryWriter(stream))
                 {
-                    writer.Write(Delegate.Username);
+                    writer.Write(Encoding.UTF8.GetBytes(Delegate.Username));
                 }
                 return stream.ToArray();
             }

@@ -24,57 +24,7 @@ namespace RiseSharp.Core.Helpers
 {
     public static class TransactionHelper
     {
-        public static byte[] GetBytes(Transaction trs, bool skipSignature = true, bool skipSecondSignature = true)
-        {
-            using (var ms = new MemoryStream())
-            {
-                if (trs != null)
-                {
-                    using (var br = new BinaryWriter(ms))
-                    {
-                        br.Write((short)trs.Type);
-                        br.Write((int)trs.Timestamp);
-                        br.Write(trs.Amount);
-                        br.Write((int)trs.Fee);
-                        //if (!string.IsNullOrWhiteSpace(trs.SenderId))
-                        //{
-                        //    br.Write(trs.SenderId);
-                        //}
-                        
-                        if (!string.IsNullOrWhiteSpace((trs.SenderPublicKey)))
-                        {
-                            br.Write(trs.SenderPublicKey.FromHex());
-                        }
-                        if (!string.IsNullOrEmpty(trs.RequesterPublicKey))
-                        {
-                            br.Write(trs.RequesterPublicKey.FromHex());
-                        }
-                        if (!string.IsNullOrWhiteSpace(trs.RecipientId))
-                        {
-                            var recId = trs.RecipientId.Replace("L", "");
-                            var num = new BigInteger(Encoding.UTF8.GetBytes(recId)).ToByteArray();
-                            br.Write(num.Take(8).ToArray());   
-                        }
-                        else
-                        {
-                            br.Write(new byte[8]);
-                        }
-
-                        if (trs.Asset != null)
-                        {
-                            br.Write(trs.Asset.GetBytes());
-                        }
-
-                        if (!string.IsNullOrWhiteSpace(trs.Signature))
-                        {
-                            br.Write(trs.Signature.FromHex());
-                        }
-                    }
-                }
-                return ms.ToArray();
-            }
-        }
-
+       
         public static void SignTransaction(ref Transaction trs, string secret)
         {
             var address = CryptoHelper.GetAddress(secret);
@@ -82,13 +32,37 @@ namespace RiseSharp.Core.Helpers
 
             trs.SenderId = address.IdString;
             trs.SenderPublicKey = keys.PublicKey.ToHex().ToLower();
-
+            
             var trsBytes = trs.GetBytes();
+           
             var hash = CryptoHelper.Sha256(trsBytes);
             var signature = CryptoHelper.Sign(hash, keys.PrivateKey);
             trs.Signature = signature.ToHex().ToLower();
             trsBytes = trs.GetBytes();
             trs.Id = CryptoHelper.GetId(trsBytes);
         }
+
+        public static int GetUnixTransactionTime()
+        {
+            var beginEpochTime = new DateTime(2016,05,24,17,0,0,DateTimeKind.Utc);
+            var currentTime = DateTime.UtcNow;
+
+            var beginEpochSeconds = beginEpochTime.ToUnixTimeInSeconds();
+            var currentTimeSeconds = currentTime.ToUnixTimeInSeconds();
+
+            var seconds = currentTimeSeconds - beginEpochSeconds;
+
+            return seconds;
+        }
+
+        public static DateTime GetTransactionTime(int seconds)
+        {
+            var beginEpochTime = new DateTime(2016, 05, 24, 17, 0, 0, DateTimeKind.Utc);
+            var epochTime = beginEpochTime.AddSeconds(seconds);
+            var unixSeconds = epochTime.ToUnixTimeInSeconds();
+            var utcDate = unixSeconds.FromUnixTimeSeconds();
+            return utcDate;
+        }
+
     }
 }

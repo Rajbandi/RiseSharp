@@ -7,13 +7,9 @@
 // <date>26/6/2016</date>
 // <summary></summary>
 #endregion
-using System;
-using System.Collections.Generic;
+
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 using RiseSharp.Core.Extensions;
 using NBitcoin.BouncyCastle.Math;
 using Newtonsoft.Json;
@@ -72,7 +68,8 @@ namespace RiseSharp.Core.Common
                     writer.Write((byte)Type);
                     writer.Write(Timestamp);
                     writer.Write(SenderPublicKey.FromHex());
-                    if (RecipientId != null)
+
+                    if (!string.IsNullOrWhiteSpace(RecipientId))
                     {
                         var recId = new BigInteger(RecipientId.Replace(Constants.AddressSuffix, ""));
                         writer.Write(recId.ToByteArray());
