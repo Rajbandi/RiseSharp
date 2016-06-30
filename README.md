@@ -7,7 +7,7 @@ App Veyor: [![Build status](https://ci.appveyor.com/api/projects/status/ceylrldf
 
 Rise meets C#.Net
 
-RiseSharp is cross platform  library based on Rise (https://www.rise.vision) and entirely rewritten in C# without any node.js depedencies. Risesharp core api is a PCL library.  Currently it supports Windows (including windows 8, 10 and windows phone), Linux and Mac, Xamarin mobile. 
+RiseSharp is cross platform  library based on Rise (https://rise.vision) and entirely rewritten in C# without any node.js depedencies. Risesharp core api is a PCL library which supports Windows (including windows 8, 10 and windows phone), Linux and Mac, Xamarin mobile (Android, Windows Phone and Ios). 
 
 ### Development Environment
 
@@ -83,7 +83,7 @@ Risesharp supports following peer related api. Still under development
 
 # RoadMap 
 
-I'm working and contributing to this project in my free time. So expect updates anytime. Other developers are most welcome if they want to help in this project.
+I'm working and contributing to this project in my free time. So expect updates anytime. Other developers are most welcome if they wish to contribute.
 
 - Standalone server (as window service or background worker) with api, database, delegates and broadcast to other peers.
 - Separate api layer for handling incoming api requests both public and peer from other nodes.
@@ -134,7 +134,7 @@ Console.WriteLine(secret);
 ```
   IRiseNodeApi  _api = new RiseNodeApi(new ApiInfo
   {
-      //Host = "yourhostip", // This can be any Rise node in the network, default is login.Rise.io
+      //Host = "yourhostip", // This can be any Rise node in the network, default is https://wallet.rise.vision
       //Port = "port"
         UseHttps = true
    });
