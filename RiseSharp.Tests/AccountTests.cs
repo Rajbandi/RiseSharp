@@ -23,7 +23,7 @@ namespace RiseSharp.Tests
             Debug.WriteLine(secret);
             var address = CryptoHelper.GetAddress(secret);
             Debug.WriteLine(address);
-            Assert.IsTrue(address.IdString == "10861956178781184496L");
+            Assert.IsTrue(address.IdString == "10861956178781184496R");
         }
 
     }
