@@ -76,7 +76,7 @@ Risesharp supports following peer related api. Still under development
 
 # Under development
 - Peer API facade complete.  
-- Logic to create new blocks,  transactions, votes.
+- Logic to create new blocks and dapps.
 - DappMan, a dapp manager library for building dapps with or without git.
 - DappManCli, a cross platform dapp command line to create, uupdate and remove dapps.
 
@@ -107,13 +107,13 @@ Console.WriteLine(secret);
 ```
  var secret = "cabbage chief join task universe hello grab slush page exit update brisk"; 
  var address = CryptoHelper.GetAddress(secret);
- //10861956178781184496L
+ //10861956178781184496R
  ```
 - Sign and Verify message bytes
 ```
  var secret = "cabbage chief join task universe hello grab slush page exit update brisk"; 
  var address = CryptoHelper.GetAddress(secret);
- // address = { Id:"10861956178781184496L", KeyPair:{PublicKey:..., PrivateKey:...}}
+ // address = { Id:"10861956178781184496R", KeyPair:{PublicKey:..., PrivateKey:...}}
  
  var keypair = address.KeyPair;
  var message = "This is my first message, testing sign and verify"
