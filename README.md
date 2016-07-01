@@ -188,7 +188,7 @@ Console.WriteLine(secret);
 ```
 IRisePeerApi  _api = new RisePeerApi(new ApiInfo
     {
-        //Host = "yourhostip", // This can be any Rise node in the network, default is login.Rise.io
+        //Host = "yourhostip", // This can be any Rise node in the network 
         //Port = "port"
         UseHttps = true
    });
