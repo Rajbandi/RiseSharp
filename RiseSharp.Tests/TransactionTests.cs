@@ -113,7 +113,8 @@ namespace RiseSharp.Tests
 
             var date = TransactionHelper.GetTransactionTime(time);
             Debug.WriteLine(date.ToLocalTime());
-            Assert.IsTrue(date.ToShortDateString() == DateTime.Now.ToShortDateString());
+
+			Assert.IsTrue(date.ToShortDateString() == DateTime.Now.ToShortDateString(), string.Format("Expected = {0}, Actual={1}", date.ToShortDateString(), DateTime.Now.ToShortDateString()));
         }
 
         //[Test]

@@ -18,6 +18,8 @@ namespace RiseSharp.Core.Common
 {
     public class Account
     {
+       public string Secret { get; set; }
+
        public Address Address { get; set; }
     }
 }
