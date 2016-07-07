@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:RiseSharp.Mobile"
              xmlns:views="clr-namespace:RiseSharp.Mobile.Views"
-             x:Class="RiseSharp.Mobile.Views.MainPage">
+             x:Class="RiseSharp.Mobile.Views.MainPage"
+                  Title="{Binding DetailViewModel.Title}" >
 
   <MasterDetailPage.Master>
-    <views:MenuPage></views:MenuPage>
+    
+    <views:MenuPage x:Name="MasterView"></views:MenuPage>
   </MasterDetailPage.Master>
-  <MasterDetailPage.Detail>
-    <views:MainContentPage></views:MainContentPage>
-  </MasterDetailPage.Detail>
+ 
 </MasterDetailPage>

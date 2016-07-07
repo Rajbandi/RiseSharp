@@ -30,7 +30,9 @@
       
       </Grid>
     </ListView.Header>
-    
+    <ListView.Behaviors>
+      
+    </ListView.Behaviors>
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>

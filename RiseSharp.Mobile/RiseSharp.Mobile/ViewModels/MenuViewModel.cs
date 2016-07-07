@@ -5,27 +5,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+using RiseSharp.Mobile.Common;
 using RiseSharp.Mobile.Models;
+using RiseSharp.Mobile.Views;
 
 namespace RiseSharp.Mobile.ViewModels
 {
     public class MenuViewModel : ViewModelBase
     {
         private string _title;
-        private ObservableCollection<MenuItem> _menu;
+        private ObservableCollection<MenuItemPage> _menu;
 
         public MenuViewModel()
         {
             Title = "Menu";
-            
-            _menu = new ObservableCollection<MenuItem>(new MenuItem[]
+
+            _menu = new ObservableCollection<MenuItemPage>(new MenuItemPage[]
             {
-                new MenuItem() {Title="Dashboard"}, 
-                new MenuItem() {Title="Wallet"}, 
-                new MenuItem() {Title = "Explorer"},
-                new MenuItem() { Title="Bitrex" },
-                new MenuItem() { Title="Settings" },
-                new MenuItem() {Title = "About" },
+                new MenuItemPage() { Title= Constants.Dashboard, TargetType = typeof(DashboardPage)},
+                new MenuItemPage() { Title= Constants.Wallet, TargetType = typeof(WalletPage)},
+                new MenuItemPage() { Title = Constants.Explorer, TargetType = typeof(ExplorerPage)},
+                new MenuItemPage() { Title= Constants.Bittrex, TargetType = typeof(BittrexPage)},
+                new MenuItemPage() { Title= Constants.Settings, TargetType = typeof(SettingsPage)},
+                new MenuItemPage() { Title = Constants.About, TargetType = typeof(AboutPage)},
             });
         }
         #region public properties
@@ -45,7 +47,7 @@ namespace RiseSharp.Mobile.ViewModels
             }
         }
 
-        public ObservableCollection<MenuItem> MenuItems
+        public ObservableCollection<MenuItemPage> MenuItems
         {
             get { return _menu; }
             set
@@ -57,7 +59,7 @@ namespace RiseSharp.Mobile.ViewModels
             }
         }
 
-       
+
         #endregion
     }
 }

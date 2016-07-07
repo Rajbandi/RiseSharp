@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace RiseSharp.Mobile.Views
 {
@@ -14,6 +8,14 @@ namespace RiseSharp.Mobile.Views
         {
             InitializeComponent();
             BindingContext = App.Locator.Menu;
+        }
+
+        public ListView MenuList
+        {
+            get
+            {
+                return MainMenu;
+            }
         }
     }
 }
