@@ -1,20 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using XLabs.Forms;
+using XLabs.Ioc;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
@@ -35,6 +27,7 @@ namespace RiseSharp.Mobile.WinPhone
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
+            SetIoc();
         }
 
         /// <summary>
@@ -128,6 +121,15 @@ namespace RiseSharp.Mobile.WinPhone
 
             // TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+        private void SetIoc()
+        {
+            var resolverContainer = new SimpleContainer();
+
+            var app = new XFormsAppWin();
+            app.Init(this);
+
+            Resolver.SetResolver(resolverContainer.GetResolver());
         }
     }
 }

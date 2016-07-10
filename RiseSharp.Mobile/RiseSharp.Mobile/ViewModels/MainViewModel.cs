@@ -1,5 +1,4 @@
-﻿using GalaSoft.MvvmLight;
-using RiseSharp.Mobile.Views;
+﻿using RiseSharp.Mobile.Views;
 using Xamarin.Forms;
 
 namespace RiseSharp.Mobile.ViewModels

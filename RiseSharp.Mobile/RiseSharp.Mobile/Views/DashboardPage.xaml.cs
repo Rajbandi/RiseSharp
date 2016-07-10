@@ -8,7 +8,6 @@ namespace RiseSharp.Mobile.Views
         public DashboardPage()
         {
             InitializeComponent();
-            BindingContext = App.Locator.Dashboard;
         }
 
     }

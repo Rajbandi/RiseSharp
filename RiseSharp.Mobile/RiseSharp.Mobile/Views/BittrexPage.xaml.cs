@@ -7,7 +7,6 @@ namespace RiseSharp.Mobile.Views
         public BittrexPage()
         {
             InitializeComponent();
-            BindingContext = App.Locator.Bittrex;
         }
     }
 }

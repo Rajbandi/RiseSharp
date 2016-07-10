@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
+﻿using XLabs.Forms.Mvvm;
 
 namespace RiseSharp.Mobile.ViewModels
 {
-    public  abstract class BaseViewModel : ViewModelBase
+    public  abstract class BaseViewModel : ViewModel
     {
         #region private properties
 
@@ -26,10 +21,7 @@ namespace RiseSharp.Mobile.ViewModels
             }
             set
             {
-                if (Set(() => Title, ref _title, value))
-                {
-                    RaisePropertyChanged(() => Title);
-                }
+                this.SetProperty(ref _title, value);
             }
         }
 

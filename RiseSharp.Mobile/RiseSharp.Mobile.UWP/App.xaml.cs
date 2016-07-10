@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using XLabs.Ioc;
 
 namespace RiseSharp.Mobile.UWP
 {
@@ -30,6 +31,7 @@ namespace RiseSharp.Mobile.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            SetIoc();
         }
 
         /// <summary>
@@ -102,6 +104,15 @@ namespace RiseSharp.Mobile.UWP
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+        private void SetIoc()
+        {
+            var resolverContainer = new SimpleContainer();
+
+            // var app = new XFormsAppWin();
+            //app.Init(this);
+
+            Resolver.SetResolver(resolverContainer.GetResolver());
         }
     }
 }

@@ -7,7 +7,6 @@ namespace RiseSharp.Mobile.Views
         public SettingsPage()
         {
             InitializeComponent();
-            BindingContext = App.Locator.Settings;
         }
     }
 }

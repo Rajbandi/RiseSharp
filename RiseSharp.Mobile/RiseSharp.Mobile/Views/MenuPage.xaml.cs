@@ -7,7 +7,6 @@ namespace RiseSharp.Mobile.Views
         public MenuPage()
         {
             InitializeComponent();
-            BindingContext = App.Locator.Menu;
         }
 
         public ListView MenuList

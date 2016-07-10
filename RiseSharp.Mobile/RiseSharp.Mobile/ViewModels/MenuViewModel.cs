@@ -1,61 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
+﻿using System.Collections.ObjectModel;
 using RiseSharp.Mobile.Common;
 using RiseSharp.Mobile.Models;
 using RiseSharp.Mobile.Views;
+using XLabs.Forms.Mvvm;
 
 namespace RiseSharp.Mobile.ViewModels
 {
-    public class MenuViewModel : ViewModelBase
+    public class MenuViewModel : BaseViewModel
     {
-        private string _title;
-        private ObservableCollection<MenuItemPage> _menu;
+        private ObservableCollection<MenuListItem> _menu;
 
         public MenuViewModel()
         {
             Title = "Menu";
 
-            _menu = new ObservableCollection<MenuItemPage>(new MenuItemPage[]
+            MenuItems = new ObservableCollection<MenuListItem>(new MenuListItem[]
             {
-                new MenuItemPage() { Title= Constants.Dashboard, TargetType = typeof(DashboardPage)},
-                new MenuItemPage() { Title= Constants.Wallet, TargetType = typeof(WalletPage)},
-                new MenuItemPage() { Title = Constants.Explorer, TargetType = typeof(ExplorerPage)},
-                new MenuItemPage() { Title= Constants.Bittrex, TargetType = typeof(BittrexPage)},
-                new MenuItemPage() { Title= Constants.Settings, TargetType = typeof(SettingsPage)},
-                new MenuItemPage() { Title = Constants.About, TargetType = typeof(AboutPage)},
+                new MenuListItem() { Title= Constants.Dashboard, ViewType = typeof(DashboardPage), ViewModelType = typeof(DashboardViewModel)},
+                new MenuListItem() { Title= Constants.Wallet, ViewType = typeof(WalletPage), ViewModelType = typeof(WalletViewModel)},
+                new MenuListItem() { Title = Constants.Explorer, ViewType = typeof(ExplorerPage), ViewModelType = typeof(ExplorerViewModel)},
+                new MenuListItem() { Title= Constants.Bittrex, ViewType = typeof(BittrexPage), ViewModelType = typeof(BittrexViewModel)},
+                new MenuListItem() { Title= Constants.Settings, ViewType = typeof(SettingsPage), ViewModelType = typeof(SettingsViewModel)},
+                new MenuListItem() { Title = Constants.About, ViewType = typeof(AboutPage), ViewModelType = typeof(AboutViewModel)},
             });
+            
         }
         #region public properties
 
-        public string Title
+        public ObservableCollection<MenuListItem> MenuItems
         {
             get
             {
-                return _title;
+                return _menu;
             }
             set
             {
-                if (Set(() => Title, ref _title, value))
-                {
-                    RaisePropertyChanged(() => Title);
-                }
-            }
-        }
-
-        public ObservableCollection<MenuItemPage> MenuItems
-        {
-            get { return _menu; }
-            set
-            {
-                if (Set(() => MenuItems, ref _menu, value))
-                {
-                    RaisePropertyChanged(() => MenuItems);
-                }
+                this.SetProperty(ref _menu, value, "MenuItems");
             }
         }
 

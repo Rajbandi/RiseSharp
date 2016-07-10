@@ -4,11 +4,8 @@
              xmlns:local="clr-namespace:RiseSharp.Mobile"
              xmlns:views="clr-namespace:RiseSharp.Mobile.Views"
              x:Class="RiseSharp.Mobile.Views.MainPage"
-                  Title="{Binding DetailViewModel.Title}" >
+                   >
 
-  <MasterDetailPage.Master>
-    
-    <views:MenuPage x:Name="MasterView"></views:MenuPage>
-  </MasterDetailPage.Master>
+  
  
 </MasterDetailPage>

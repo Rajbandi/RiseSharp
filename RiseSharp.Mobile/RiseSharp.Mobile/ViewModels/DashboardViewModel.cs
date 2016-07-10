@@ -1,5 +1,4 @@
 ﻿using System.Dynamic;
-using GalaSoft.MvvmLight;
 using RiseSharp.Mobile.Common;
 
 namespace RiseSharp.Mobile.ViewModels

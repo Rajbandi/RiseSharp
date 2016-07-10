@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using XLabs.Forms;
+using XLabs.Ioc;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
@@ -33,6 +35,7 @@ namespace RiseSharp.Mobile.Windows
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
+            SetIoc();
         }
 
         /// <summary>
@@ -102,5 +105,10 @@ namespace RiseSharp.Mobile.Windows
             // TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+        private void SetIoc()
+        {
+            var resolverContainer = new SimpleContainer();
+            Resolver.SetResolver(resolverContainer.GetResolver());
+        } 
     }
 }

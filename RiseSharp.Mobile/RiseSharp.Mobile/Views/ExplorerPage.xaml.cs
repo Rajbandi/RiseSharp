@@ -7,7 +7,6 @@ namespace RiseSharp.Mobile.Views
         public ExplorerPage()
         {
             InitializeComponent();
-            BindingContext = App.Locator.Explorer;
         }
     }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NGraphics.WindowsPhone</name>
+    </assembly>
+    <members>
+        <member name="T:NGraphics.RenderTargetCanvas">
+            <summary>
+            ICanvas wrapper over a Direct2D RenderTarget.
+            </summary>
+        </member>
+    </members>
+</doc>
