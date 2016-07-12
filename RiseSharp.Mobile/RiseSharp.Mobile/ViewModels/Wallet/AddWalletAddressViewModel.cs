@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using RiseSharp.Core.Helpers;
+﻿using RiseSharp.Core.Helpers;
 using RiseSharp.Mobile.Common;
-using Xamarin.Forms;
 using XLabs;
 
 namespace RiseSharp.Mobile.ViewModels.Wallet
 {
     public class AddWalletAddressViewModel : DetailViewModel
     {
-        private string _secret, _addressId;
+        private string _secret, _addressId, _name;
 
         public AddWalletAddressViewModel() : base(Constants.AddWalletAddress)
         {
@@ -52,6 +45,15 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
                 return _addressId;
             }
             set { this.SetProperty(ref _addressId, value); }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set { this.SetProperty(ref _name, value); }
         }
         
         #endregion

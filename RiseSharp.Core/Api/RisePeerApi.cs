@@ -72,7 +72,7 @@ namespace RiseSharp.Core.Api
             _url.Path = Constants.PeerGetList;
             var headerValues = req.GetHeaderValues().ToList();
             AddHeaders(headerValues);
-            var response = await _client.GetJsonAsync<PeerListResponse>(_url.ToString());
+            var response = await _client.GetJsonAsync<PeerListResponse>(_url.Uri.ToString());
             ResetRequest(headerValues);
             return response;
         }
@@ -97,7 +97,7 @@ namespace RiseSharp.Core.Api
             _url.Path = Constants.PeerGetBlocks;
             var headerValues = req.GetHeaderValues().ToList();
             AddHeaders(headerValues);
-            var response = await _client.GetJsonAsync<PeerBlocksResponse>(_url.ToString());
+            var response = await _client.GetJsonAsync<PeerBlocksResponse>(_url.Uri.ToString());
             ResetRequest(headerValues);
             return response;
         }
@@ -112,7 +112,7 @@ namespace RiseSharp.Core.Api
             _url.Path = Constants.PeerGetHeight;
             var headerValues = req.GetHeaderValues().ToList();
             AddHeaders(headerValues);
-            var response = await _client.GetJsonAsync<PeerHeightResponse>(_url.ToString());
+            var response = await _client.GetJsonAsync<PeerHeightResponse>(_url.Uri.ToString());
             ResetRequest(headerValues);
             return response;
         }
@@ -127,7 +127,7 @@ namespace RiseSharp.Core.Api
             _url.Path = Constants.PeerPostTransactions;
             var headerValues = req.GetHeaderValues().ToList();
             AddHeaders(headerValues);
-            var response = await _client.PostJsonAsync<PeerTransactionsRequest, PeerTransactionsResponse>(_url.ToString(), req);
+            var response = await _client.PostJsonAsync<PeerTransactionsRequest, PeerTransactionsResponse>(_url.Uri.ToString(), req);
             ResetRequest(headerValues);
             return response;
         }

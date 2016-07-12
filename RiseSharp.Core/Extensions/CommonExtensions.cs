@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NBitcoin;
 using NBitcoin.DataEncoders;
 
 namespace RiseSharp.Core.Extensions
@@ -26,10 +27,11 @@ namespace RiseSharp.Core.Extensions
         public static byte[] FromHex(this string str)
         {
             return Enumerable.Range(0, str.Length)
-                    .Where(x => x % 2 == 0)
-                    .Select(x => Convert.ToByte(str.Substring(x, 2), 16))
-                    .ToArray();
+                .Where(x => x%2 == 0)
+                .Select(x => Convert.ToByte(str.Substring(x, 2), 16))
+                .ToArray();
         }
+
         public static byte[] GetBytes(this long val)
         {
             byte[] bytes = BitConverter.GetBytes(val);
@@ -37,11 +39,13 @@ namespace RiseSharp.Core.Extensions
                 Array.Reverse(bytes);
             return bytes;
         }
+
         public static long GetLongBytes(this byte[] val)
         {
             long longValue = BitConverter.ToInt64(val, 0);
             return longValue;
         }
+
         public static byte[] GetBytes(this int val)
         {
             byte[] bytes = BitConverter.GetBytes(val);
@@ -69,8 +73,8 @@ namespace RiseSharp.Core.Extensions
         public static int ToUnixTimeInSeconds(this DateTime dateTime)
         {
             var dt = (dateTime.Kind != DateTimeKind.Utc) ? dateTime.ToUniversalTime() : dateTime;
-            var epochTime = new DateTime(1970,1,1,0,0,0, DateTimeKind.Utc);
-            var seconds = (int)(dt - epochTime).TotalSeconds;
+            var epochTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            var seconds = (int) (dt - epochTime).TotalSeconds;
             return seconds;
         }
 
@@ -80,5 +84,24 @@ namespace RiseSharp.Core.Extensions
             return epochTime.AddSeconds(unixTimeInSeconds);
         }
 
-    }
+        
+        public static byte[] TakeBytes(this byte[] bytes, int length)
+        {
+            var byteArr = new byte[length];
+            var index = 0;
+            var len = bytes.Length;
+            if (length >= len)
+                return bytes;
+            do
+            {
+               
+                if (index >= len)
+                    break;
+            } while (bytes[index++] == '0');
+
+            Buffer.BlockCopy(bytes, index, byteArr, 0, length);
+
+            return byteArr;
+        }
+}
 }

@@ -7,6 +7,8 @@
 // <date>26/6/2016</date>
 // <summary></summary>
 #endregion
+
+using System;
 using RiseSharp.Core.Common;
 
 namespace RiseSharp.Core.Helpers
@@ -21,6 +23,8 @@ namespace RiseSharp.Core.Helpers
                 Address = address
             };
         }
+
+      
 
     }
 }

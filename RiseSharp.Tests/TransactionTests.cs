@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
+using System.Text;
 using NBitcoin.BouncyCastle.Math;
 using RiseSharp.Core.Common;
 using RiseSharp.Core.Extensions;
@@ -77,13 +78,11 @@ namespace RiseSharp.Tests
                     }
                 }
             };
-
         }
 
         [Test]
         public void TestMultiDelegatesTransaction()
         {
-
             var delTransaction = new Transaction
             {
                 Type = TransactionType.Multi,
@@ -118,23 +117,36 @@ namespace RiseSharp.Tests
         }
 
         //[Test]
+        //public void TestRecipientIdBytes()
+        //{
+        //    var recId = "12034855167461719919R";
+
+        //    var num = recId.Replace("R", "");
+
+        //    var utfBytes = new BigInteger(num);
+        //    Debug.WriteLine(utfBytes.ToByteArray().ToHex());
+
+        //    var hex = utfBytes.ToByteArray().TakeBytes(8).ToHex();
+        //    Debug.WriteLine(hex);
+        //}
+
+        //[Test]
         //public void TestByteSequenceWithRiseJs()
         //{
-        //    var secret = "";
-        //    var recId = "5384878184507859808L";
+        //    var recId = "";
 
-            
+
         //    long amount = (long)(2 * Math.Pow(10, 8));
         //    var trs = new Transaction
         //    {
-        //        Type = 0,
+        //        Type = TransactionType.Send,
         //        Amount = amount,
         //        Fee = Constants.Fees.Send,
         //        RecipientId = recId,
         //        Timestamp = 1467197271, //(int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds
-        //        Signature = "6dff6a1e13f8101dc74872b021bb95b4533a7617fc67620a7ff56ba657f119dec7a38a4ddf0295719f1961f62ef6c82151a5e9edd7bee2cb127a3f6506d4a604"
+        //        //Signature = "6dff6a1e13f8101dc74872b021bb95b4533a7617fc67620a7ff56ba657f119dec7a38a4ddf0295719f1961f62ef6c82151a5e9edd7bee2cb127a3f6506d4a604"
         //    };
-
+        //    TransactionHelper.SignTransaction(ref trs, secret);
         //    var address = CryptoHelper.GetAddress(secret);
         //    var keys = address.KeyPair;
         //    trs.SenderId = address.IdString;
@@ -153,7 +165,7 @@ namespace RiseSharp.Tests
         //            }
         //            if (!string.IsNullOrWhiteSpace(trs.RecipientId))
         //            {
-        //                var rec = new BigInteger(trs.RecipientId.Replace("L", "")).ToByteArray().Take(8).ToArray();
+        //                var rec = new BigInteger(trs.RecipientId.Replace("R", "")).ToByteArray().Reverse().Take(8).ToArray();
         //                bw.Write(rec);
         //            }
         //            bw.Write(trs.Amount);
@@ -165,7 +177,7 @@ namespace RiseSharp.Tests
         //        }
 
         //        var bytes = ms.ToArray();
-                
+
         //        Debug.WriteLine(bytes.Length);
         //        Debug.WriteLine(BitConverter.ToString(bytes));
         //        var hex = bytes.ToHex().ToLower();
@@ -175,7 +187,7 @@ namespace RiseSharp.Tests
 
         //        var hex1 = trBytes.ToHex().ToLower();
         //        Debug.WriteLine(hex1);
-
+        //        Debug.WriteLine(trs);
         //    }
 
         //}

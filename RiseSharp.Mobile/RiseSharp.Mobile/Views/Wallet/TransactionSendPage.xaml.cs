@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace RiseSharp.Mobile.Views.Wallet
 {
-    public partial class TransactionHistory : ContentPage
+    public partial class TransactionSendPage : ContentPage
     {
-        public TransactionHistory()
+        public TransactionSendPage()
         {
             InitializeComponent();
         }

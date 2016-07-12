@@ -2,6 +2,9 @@
 {
     public static class Constants
     {
+        public const string FolderPath = "RiseWallet";
+        public const string FileName = "AppData.json";
+
         public const string Dashboard = "Dashboard";
         public const string Wallet = "Wallet";
         public const string Explorer = "Explorer";

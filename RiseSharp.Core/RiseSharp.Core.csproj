@@ -138,6 +138,7 @@
     <Compile Include="Common\Transaction.cs" />
     <Compile Include="Common\TransactionType.cs" />
     <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Exceptions\AccountException.cs" />
     <Compile Include="Exceptions\DappException.cs" />
     <Compile Include="Exceptions\RiseSharpException.cs" />
     <Compile Include="Extensions\CommonExtensions.cs" />
@@ -151,11 +152,8 @@
     <Compile Include="Helpers\PeerHelper.cs" />
     <Compile Include="Helpers\TransactionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IFileService.cs" />
+    <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\ForgingService.cs" />
-    <Compile Include="Services\IPeerService.cs" />
-    <Compile Include="Services\PeerService.cs" />
-    <Compile Include="Services\WalletService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="NBitcoin, Version=3.0.0.34, Culture=neutral, processorArchitecture=MSIL">

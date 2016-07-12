@@ -27,6 +27,8 @@ namespace RiseSharp.Mobile.Droid
 		public static void UpdateIdValues()
 		{
 			global::NGraphics.Android.Resource.String.library_name = global::RiseSharp.Mobile.Droid.Resource.String.library_name;
+			global::PCLStorage.Resource.String.ApplicationName = global::RiseSharp.Mobile.Droid.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::RiseSharp.Mobile.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::RiseSharp.Mobile.Droid.Resource.Attribute.actionBarSize;
 			global::XLabs.Forms.Droid.Resource.Animation.abc_fade_in = global::RiseSharp.Mobile.Droid.Resource.Animation.abc_fade_in;
 			global::XLabs.Forms.Droid.Resource.Animation.abc_fade_out = global::RiseSharp.Mobile.Droid.Resource.Animation.abc_fade_out;

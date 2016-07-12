@@ -18,6 +18,7 @@ using RiseSharp.Core.Extensions;
 using NBitcoin;
 using NBitcoin.BouncyCastle.Math;
 using RiseSharp.Core.Api.Messages.Node;
+using RiseSharp.Core.Common;
 using Transaction = RiseSharp.Core.Common.Transaction;
 
 namespace RiseSharp.Core.Helpers
@@ -25,21 +26,39 @@ namespace RiseSharp.Core.Helpers
     public static class TransactionHelper
     {
        
-        public static void SignTransaction(ref Transaction trs, string secret)
+        public static void SignTransaction(ref Transaction trs, string secret, string secondSecret="")
         {
             var address = CryptoHelper.GetAddress(secret);
             var keys = address.KeyPair;
 
             trs.SenderId = address.IdString;
             trs.SenderPublicKey = keys.PublicKey.ToHex().ToLower();
-            
+            var signature = GetSignature(trs, address);
+            trs.Signature = signature.ToHex().ToLower();
+
+            if (!string.IsNullOrWhiteSpace(secondSecret))
+            {
+                trs.SignSignature = GetSignature(trs, secondSecret).ToHex().ToLower();
+            }
             var trsBytes = trs.GetBytes();
-           
+            trs.Id = CryptoHelper.GetId(trsBytes);
+        }
+
+        public static byte[] GetSignature(Transaction trs, string secret)
+        {
+            var address = CryptoHelper.GetAddress(secret);
+            var signature = GetSignature(trs, address);
+            return signature;
+        }
+
+        public static byte[] GetSignature(Transaction trs, Address address)
+        {
+            var keys = address.KeyPair;
+            var trsBytes = trs.GetBytes();
+
             var hash = CryptoHelper.Sha256(trsBytes);
             var signature = CryptoHelper.Sign(hash, keys.PrivateKey);
-            trs.Signature = signature.ToHex().ToLower();
-            trsBytes = trs.GetBytes();
-            trs.Id = CryptoHelper.GetId(trsBytes);
+            return signature;
         }
 
         public static int GetUnixTransactionTime()

@@ -7,6 +7,10 @@
 // <date>26/6/2016</date>
 // <summary></summary>
 #endregion
+
+using Microsoft.VisualBasic;
+using Constants = RiseSharp.Core.Common.Constants;
+
 namespace RiseSharp.Core.Api.Models
 {
     /// <summary>
@@ -28,6 +32,15 @@ namespace RiseSharp.Core.Api.Models
         /// Port 
         /// </summary>
         public int? Port { get; set; }
+
+        public static ApiInfo GetDefaultApiInfo()
+        {
+            return new ApiInfo
+            {
+                Host = Constants.DefaultHost,
+                UseHttps = Constants.DefaultUseHttps
+            };
+        }
 
     }
 }

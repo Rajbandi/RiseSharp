@@ -1,36 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using RiseSharp.Mobile.Models;
+﻿using RiseSharp.Mobile.Models;
+using RiseSharp.Mobile.Services;
 using RiseSharp.Mobile.ViewModels;
 using RiseSharp.Mobile.ViewModels.Wallet;
 using RiseSharp.Mobile.Views;
 using RiseSharp.Mobile.Views.Wallet;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
-using XLabs.Forms.Services;
 using XLabs.Ioc;
-using XLabs.Platform.Services;
 
 namespace RiseSharp.Mobile
 {
     public partial class App : Application
     {
+        private static AppData _appData;
         private static SimpleContainer _container;
-        private static Settings _settings;
 
         public static string Message = "Message";
 
         public App()
         {
             //  InitializeComponent();
-          
+            RegisterServices();
             SetIoc();
             RegisterViews();
             RegisterMessages();
+            AppData.Settings.IsSecurityEnabled = true;
             MainPage = GetMainPage();
-            
+            var localService = DependencyService.Get<IStorageService>();
         }
 
         private static void SetIoc()
@@ -48,6 +44,12 @@ namespace RiseSharp.Mobile
             {
                 Current.MainPage = (Page) ViewFactory.CreatePage<MainViewModel, MainPage>();
             });
+        }
+
+        private static void RegisterServices()
+        {
+            DependencyService.Register<IStorageService, FileStorageService>();
+            DependencyService.Register<IDialogService, DialogService>();
         }
 
         public static SimpleContainer Container
@@ -72,19 +74,39 @@ namespace RiseSharp.Mobile
             ViewFactory.Register<BittrexPage, BittrexViewModel>();
 
             //Wallet pages
-            ViewFactory.Register<WalletAddresses, WalletAddressesViewModel>();
-            ViewFactory.Register<TransactionSend, TransactionSendViewModel>();
-            ViewFactory.Register<TransactionHistory, TransactionHistoryViewModel>();
-            ViewFactory.Register<AddWalletAddress, AddWalletAddressViewModel>();
+            ViewFactory.Register<WalletAddressesPage, WalletAddressesViewModel>();
+            ViewFactory.Register<TransactionSendPage, TransactionSendViewModel>();
+            ViewFactory.Register<TransactionHistoryPage, TransactionHistoryViewModel>();
+            ViewFactory.Register<AddWalletAddressPage, AddWalletAddressViewModel>();
 
         }
 
         public static Page GetMainPage()
         {
-            if (Settings.IsSecurityEnabled)
+            if (AppData.Settings.IsSecurityEnabled)
                 return CreatePage<PasswordViewModel>();
 
             return CreatePage<MainViewModel>();
+        }
+
+        public static AppData AppData
+        {
+            get
+            {
+                if (_appData == null)
+                {
+                    var storageService = DependencyService.Get<IStorageService>();
+                    if (storageService != null)
+                    {
+                        _appData = storageService.LoadDataAsync().GetAwaiter().GetResult();
+                        _appData.Settings.IsSecurityEnabled = true;
+                        storageService.SaveDataAsync(_appData).GetAwaiter().GetResult();
+                    }
+                    else
+                        _appData = new AppData();
+                }
+                return _appData;
+            }
         }
 
         public static Page CreatePage<T>()
@@ -111,17 +133,7 @@ namespace RiseSharp.Mobile
             // Handle when your app resumes
         }
 
-        public static Settings Settings
-        {
-            get
-            {
-                if (_settings == null)
-                {
-                    _settings = new Settings {IsSecurityEnabled = true};
-                }
-                return _settings;
-            }
-        }
+     
 
     }
 }

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RiseSharp.Core.Services
+namespace RiseSharp.Mobile.Services
 {
-    public interface IInterface
+    public interface IAppDataService
     {
+        
         
     }
 }

@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RiseSharp.Core.Exceptions
+{
+    public class AccountException : RiseSharpException
+    {
+        public AccountException()
+        {
+            
+        }
+
+        public AccountException(string message) : base(message)
+        {
+            
+        }
+    }
+}

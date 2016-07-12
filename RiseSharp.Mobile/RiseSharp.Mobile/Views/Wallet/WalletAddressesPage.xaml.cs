@@ -2,9 +2,9 @@
 
 namespace RiseSharp.Mobile.Views.Wallet
 {
-    public partial class AddWalletAddress : ContentPage
+    public partial class WalletAddressesPage : ContentPage
     {
-        public AddWalletAddress()
+        public WalletAddressesPage()
         {
             InitializeComponent();
         }

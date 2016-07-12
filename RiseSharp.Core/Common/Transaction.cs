@@ -72,7 +72,7 @@ namespace RiseSharp.Core.Common
                     if (!string.IsNullOrWhiteSpace(RecipientId))
                     {
                         var recId = new BigInteger(RecipientId.Replace(Constants.AddressSuffix, ""));
-                        writer.Write(recId.ToByteArray());
+                        writer.Write(recId.ToByteArray().TakeBytes(8));
                     }
                     else
                     {
