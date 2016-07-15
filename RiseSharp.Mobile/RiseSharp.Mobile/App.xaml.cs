@@ -1,4 +1,5 @@
-﻿using RiseSharp.Mobile.Models;
+﻿using RiseSharp.Mobile.Helpers;
+using RiseSharp.Mobile.Models;
 using RiseSharp.Mobile.Services;
 using RiseSharp.Mobile.ViewModels;
 using RiseSharp.Mobile.ViewModels.Wallet;
@@ -26,7 +27,7 @@ namespace RiseSharp.Mobile
             RegisterMessages();
             AppData.Settings.IsSecurityEnabled = true;
             MainPage = GetMainPage();
-            var localService = DependencyService.Get<IStorageService>();
+        
         }
 
         private static void SetIoc()
@@ -48,8 +49,8 @@ namespace RiseSharp.Mobile
 
         private static void RegisterServices()
         {
-            DependencyService.Register<IStorageService, FileStorageService>();
             DependencyService.Register<IDialogService, DialogService>();
+            
         }
 
         public static SimpleContainer Container
@@ -95,20 +96,18 @@ namespace RiseSharp.Mobile
             {
                 if (_appData == null)
                 {
-                    var storageService = DependencyService.Get<IStorageService>();
-                    if (storageService != null)
-                    {
-                        _appData = storageService.LoadDataAsync().GetAwaiter().GetResult();
-                        _appData.Settings.IsSecurityEnabled = true;
-                        storageService.SaveDataAsync(_appData).GetAwaiter().GetResult();
-                    }
-                    else
-                        _appData = new AppData();
+                    _appData = new AppData();
+                    _appData.Save();
                 }
                 return _appData;
             }
+            internal set
+            {
+                _appData = value;
+            }
         }
 
+        
         public static Page CreatePage<T>()
         {
             var page = (Page)ViewFactory.CreatePage(typeof(T));

@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="AccountTests.cs" />
     <Compile Include="BlockTests.cs" />
+    <Compile Include="CryptoTests.cs" />
     <Compile Include="DappTests.cs" />
     <Compile Include="Internals\Unzip.cs" />
     <Compile Include="RiseNodeApiTests.cs" />

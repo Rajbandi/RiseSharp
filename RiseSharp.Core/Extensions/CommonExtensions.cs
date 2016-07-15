@@ -32,6 +32,11 @@ namespace RiseSharp.Core.Extensions
                 .ToArray();
         }
 
+        public static byte[] GetBytes(this string str)
+        {
+            return Encoding.UTF8.GetBytes(str);
+        }
+
         public static byte[] GetBytes(this long val)
         {
             byte[] bytes = BitConverter.GetBytes(val);

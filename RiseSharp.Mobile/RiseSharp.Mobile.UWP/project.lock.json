@@ -271,16 +271,6 @@
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
-      "PCLStorage/1.0.2": {
-        "compile": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        }
-      },
       "SharpDX/3.0.2": {
         "compile": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
@@ -310,6 +300,25 @@
         },
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.DXGI.dll": {}
+        }
+      },
+      "SQLite.Net-PCL/3.1.1": {
+        "dependencies": {
+          "SQLite.Net.Core-PCL": "3.1.1"
+        },
+        "compile": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        },
+        "runtime": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        }
+      },
+      "SQLite.Net.Core-PCL/3.1.1": {
+        "compile": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -2182,16 +2191,6 @@
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
-      "PCLStorage/1.0.2": {
-        "compile": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        }
-      },
       "SharpDX/3.0.2": {
         "compile": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
@@ -2221,6 +2220,25 @@
         },
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.DXGI.dll": {}
+        }
+      },
+      "SQLite.Net-PCL/3.1.1": {
+        "dependencies": {
+          "SQLite.Net.Core-PCL": "3.1.1"
+        },
+        "compile": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        },
+        "runtime": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        }
+      },
+      "SQLite.Net.Core-PCL/3.1.1": {
+        "compile": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -3939,16 +3957,6 @@
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
-      "PCLStorage/1.0.2": {
-        "compile": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        }
-      },
       "SharpDX/3.0.2": {
         "compile": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
@@ -3978,6 +3986,25 @@
         },
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.DXGI.dll": {}
+        }
+      },
+      "SQLite.Net-PCL/3.1.1": {
+        "dependencies": {
+          "SQLite.Net.Core-PCL": "3.1.1"
+        },
+        "compile": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        },
+        "runtime": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        }
+      },
+      "SQLite.Net.Core-PCL/3.1.1": {
+        "compile": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -5694,16 +5721,6 @@
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
-      "PCLStorage/1.0.2": {
-        "compile": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        }
-      },
       "SharpDX/3.0.2": {
         "compile": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
@@ -5733,6 +5750,25 @@
         },
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.DXGI.dll": {}
+        }
+      },
+      "SQLite.Net-PCL/3.1.1": {
+        "dependencies": {
+          "SQLite.Net.Core-PCL": "3.1.1"
+        },
+        "compile": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        },
+        "runtime": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        }
+      },
+      "SQLite.Net.Core-PCL/3.1.1": {
+        "compile": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -7451,16 +7487,6 @@
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
-      "PCLStorage/1.0.2": {
-        "compile": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        }
-      },
       "SharpDX/3.0.2": {
         "compile": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
@@ -7490,6 +7516,25 @@
         },
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.DXGI.dll": {}
+        }
+      },
+      "SQLite.Net-PCL/3.1.1": {
+        "dependencies": {
+          "SQLite.Net.Core-PCL": "3.1.1"
+        },
+        "compile": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        },
+        "runtime": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        }
+      },
+      "SQLite.Net.Core-PCL/3.1.1": {
+        "compile": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -9206,16 +9251,6 @@
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
-      "PCLStorage/1.0.2": {
-        "compile": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        }
-      },
       "SharpDX/3.0.2": {
         "compile": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
@@ -9245,6 +9280,25 @@
         },
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.DXGI.dll": {}
+        }
+      },
+      "SQLite.Net-PCL/3.1.1": {
+        "dependencies": {
+          "SQLite.Net.Core-PCL": "3.1.1"
+        },
+        "compile": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        },
+        "runtime": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        }
+      },
+      "SQLite.Net.Core-PCL/3.1.1": {
+        "compile": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -10963,16 +11017,6 @@
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
-      "PCLStorage/1.0.2": {
-        "compile": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll": {},
-          "lib/portable-win8+wpa81/PCLStorage.dll": {}
-        }
-      },
       "SharpDX/3.0.2": {
         "compile": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
@@ -11002,6 +11046,25 @@
         },
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.DXGI.dll": {}
+        }
+      },
+      "SQLite.Net-PCL/3.1.1": {
+        "dependencies": {
+          "SQLite.Net.Core-PCL": "3.1.1"
+        },
+        "compile": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        },
+        "runtime": {
+          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
+        }
+      },
+      "SQLite.Net.Core-PCL/3.1.1": {
+        "compile": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -13105,50 +13168,6 @@
         "tools/install.ps1"
       ]
     },
-    "PCLStorage/1.0.2": {
-      "sha512": "9If+1ZFCk3QaT/asfiL+J9FMnx2CTMrLCU8tDMUOI/aCGWGWl9vJ1/KcMkjf92op23ZknenvYJZBLDAqE3sFlg==",
-      "type": "package",
-      "files": [
-        "PCLStorage.1.0.2.nupkg.sha512",
-        "PCLStorage.nuspec",
-        "lib/monoandroid/PCLStorage.Abstractions.dll",
-        "lib/monoandroid/PCLStorage.Abstractions.xml",
-        "lib/monoandroid/PCLStorage.dll",
-        "lib/monoandroid/PCLStorage.xml",
-        "lib/monotouch/PCLStorage.Abstractions.dll",
-        "lib/monotouch/PCLStorage.Abstractions.xml",
-        "lib/monotouch/PCLStorage.dll",
-        "lib/monotouch/PCLStorage.xml",
-        "lib/net45/PCLStorage.Abstractions.dll",
-        "lib/net45/PCLStorage.Abstractions.xml",
-        "lib/net45/PCLStorage.dll",
-        "lib/net45/PCLStorage.xml",
-        "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.dll",
-        "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.xml",
-        "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.dll",
-        "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.xml",
-        "lib/portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.dll",
-        "lib/portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.xml",
-        "lib/portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.dll",
-        "lib/portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.xml",
-        "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.dll",
-        "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.xml",
-        "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.dll",
-        "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.xml",
-        "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll",
-        "lib/portable-win8+wpa81/PCLStorage.Abstractions.xml",
-        "lib/portable-win8+wpa81/PCLStorage.dll",
-        "lib/portable-win8+wpa81/PCLStorage.xml",
-        "lib/sl5/PCLStorage.Abstractions.dll",
-        "lib/sl5/PCLStorage.Abstractions.xml",
-        "lib/sl5/PCLStorage.dll",
-        "lib/sl5/PCLStorage.xml",
-        "lib/wp8/PCLStorage.Abstractions.dll",
-        "lib/wp8/PCLStorage.Abstractions.xml",
-        "lib/wp8/PCLStorage.dll",
-        "lib/wp8/PCLStorage.xml"
-      ]
-    },
     "SharpDX/3.0.2": {
       "sha512": "nwELP2T20JtPHm+h+dQwabeNO1/UnKzWYP0LafIV73+fjww/G4yLcPedSRhgoK5H/pR8B5m4jOENUFqDmcq3fQ==",
       "type": "package",
@@ -13183,6 +13202,33 @@
         "lib/net45/SharpDX.DXGI.xml",
         "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.DXGI.dll",
         "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.DXGI.xml"
+      ]
+    },
+    "SQLite.Net-PCL/3.1.1": {
+      "sha512": "eIaIk+k4MwvBeKyzj1kgIegWXYZlaDAHNzsaYP7wNDgSqAdaza8FgCRun7mIZScJD/RIuKxN/b1V+bkC+/WIeA==",
+      "type": "package",
+      "files": [
+        "SQLite.Net-PCL.3.1.1.nupkg.sha512",
+        "SQLite.Net-PCL.nuspec",
+        "lib/MonoAndroid/SQLite.Net.Platform.XamarinAndroid.dll",
+        "lib/Windows8/SQLite.Net.Platform.WinRT.dll",
+        "lib/Xamarin.iOS10/SQLite.Net.Platform.XamarinIOS.Unified.dll",
+        "lib/monotouch/SQLite.Net.Platform.XamarinIOS.dll",
+        "lib/net4/SQLite.Net.Platform.Win32.dll",
+        "lib/net40/SQLite.Net.Platform.Generic.dll",
+        "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll",
+        "lib/portable-win81+wpa81/SQLite.Net.Platform.WinRT.dll",
+        "lib/windowsphone8/ARM/SQLite.Net.Platform.WindowsPhone8.dll",
+        "lib/windowsphone8/x86/SQLite.Net.Platform.WindowsPhone8.dll"
+      ]
+    },
+    "SQLite.Net.Core-PCL/3.1.1": {
+      "sha512": "/0VdXnyj2srEh5rM1RW/snXJrVGRsxGB3xjW4EkhZIig9N/8EocZZrEr0vwRJU8a9Lz4BrweoLyKwp2evmSIzg==",
+      "type": "package",
+      "files": [
+        "SQLite.Net.Core-PCL.3.1.1.nupkg.sha512",
+        "SQLite.Net.Core-PCL.nuspec",
+        "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll"
       ]
     },
     "System.AppContext/4.0.0": {
@@ -15966,7 +16012,7 @@
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "Newtonsoft.Json >= 9.0.1",
-      "PCLStorage >= 1.0.2",
+      "SQLite.Net-PCL >= 3.1.1",
       "XLabs.Forms >= 2.2.0-pre05",
       "XLabs.Platform >= 2.2.0-pre05",
       "Xamarin.Forms >= 2.3.0.107"

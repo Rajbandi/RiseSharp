@@ -86,7 +86,7 @@ namespace RiseSharp.Core.Services
         /// <param name="recipientId">recipient id</param>
         /// <param name="amount">amount</param>
         /// <returns></returns>
-        public bool Send(string recipientId, long amount)
+        public bool Send(string recipientId, double amount)
         {
             return SendAsync(recipientId, amount).GetAwaiter().GetResult();
         }
@@ -97,7 +97,7 @@ namespace RiseSharp.Core.Services
         /// <param name="recipientId">recipientid</param>
         /// <param name="amount">amount</param>
         /// <returns></returns>
-        public async Task<bool> SendAsync(string recipientId, long amount)
+        public async Task<bool> SendAsync(string recipientId, double amount)
         {
             if (string.IsNullOrWhiteSpace(recipientId))
             {
@@ -109,7 +109,7 @@ namespace RiseSharp.Core.Services
                 throw new AccountException(
                     $"Invalid recipient id {recipientId}, always ends with {Constants.AddressSuffix}");
             }
-
+            
             var amt = (long)(amount * Math.Pow(10, 8));
             var account = await GetAccountAsync();
             if (account.SecondSignature == 1 && string.IsNullOrWhiteSpace(_secondSecret))

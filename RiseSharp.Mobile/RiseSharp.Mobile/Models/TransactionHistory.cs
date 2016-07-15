@@ -1,10 +1,16 @@
 ﻿using System.Runtime.Serialization;
+using SQLite.Net.Attributes;
 
 namespace RiseSharp.Mobile.Models
 {
+    [Table("TransactionHistory")]
     [DataContract]
     public class TransactionHistory
     {
+        [PrimaryKey, AutoIncrement]
+        [DataMember(Name = "id")]
+        public int Id { get; set; }
+
         [DataMember(Name = "fromaddress")]
         public string FromAddress { get; set; }
 

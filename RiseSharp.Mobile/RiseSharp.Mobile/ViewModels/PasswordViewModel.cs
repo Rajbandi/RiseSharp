@@ -53,6 +53,7 @@ namespace RiseSharp.Mobile.ViewModels
             {
                     try
                     {
+                        
                        MessagingCenter.Send("Message","Main");
                         //navService.PushAsync();
                     }

@@ -97,7 +97,7 @@ namespace RiseSharp.Tests
                 {
                     Delegates = new DelegatesAssetCollection
                     {
-                        List = _delegates.Select(x => string.Format("+{0}", x.Address.KeyPair.PublicKey.ToHex())).ToList()
+                        List = _delegates.Select(x => $"+{x.Address.KeyPair.PublicKey.ToHex()}").ToList()
                     }
                 }
             };
