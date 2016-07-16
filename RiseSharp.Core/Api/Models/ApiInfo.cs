@@ -1,13 +1,12 @@
 ﻿#region copyright
 // <copyright file="ApiInfo.cs" >
-// Copyright (c) 2016 All Rights Reserved
+// Copyright (c) 2016 Raj Bandi All Rights Reserved
 // Licensed under MIT
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>26/6/2016</date>
+// <date>16/7/2016</date>
 // <summary></summary>
 #endregion
-
 using Microsoft.VisualBasic;
 using Constants = RiseSharp.Core.Common.Constants;
 
