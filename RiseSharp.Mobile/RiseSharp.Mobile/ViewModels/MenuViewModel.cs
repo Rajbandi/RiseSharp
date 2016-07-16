@@ -1,4 +1,13 @@
-﻿using System.Collections.ObjectModel;
+﻿#region copyright
+// <copyright file="MenuViewModel.cs" >
+// Copyright (c) 2016 Raj Bandi All Rights Reserved
+// Licensed under MIT
+// </copyright>
+// <author>Raj Bandi</author>
+// <date>16/7/2016</date>
+// <summary></summary>
+#endregion
+using System.Collections.ObjectModel;
 using RiseSharp.Mobile.Common;
 using RiseSharp.Mobile.Models;
 using RiseSharp.Mobile.Views;

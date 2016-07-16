@@ -1,0 +1,21 @@
+﻿﻿extensions: designer.cs generated.cs
+extensions: .cs .cpp .h
+#region copyright
+// <copyright file="%FileName%" >
+// Copyright (c) 2016 Raj Bandi All Rights Reserved
+// Licensed under MIT
+// </copyright>
+// <author>Raj Bandi</author>
+// <date>%CurrentDay%/%CurrentMonth%/%CurrentYear%</date>
+// <summary></summary>
+#endregion
+extensions: .aspx .ascx
+<%-- 
+Copyright (c) 2016 Raj Bandi
+--%>
+extensions: .vb
+'Copyright (c) 2016 Raj Bandi
+extensions:  .xml .config .xsd
+<!--
+Copyright (c) 2016 Raj Bandi.
+-->

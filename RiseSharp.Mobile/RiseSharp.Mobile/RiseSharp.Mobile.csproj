@@ -41,6 +41,7 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Controls\SvgImage.cs" />
     <Compile Include="Helpers\DataHelper.cs" />
+    <Compile Include="Helpers\DialogHelper.cs" />
     <Compile Include="Models\TransactionHistory.cs" />
     <Compile Include="Models\WalletAddress.cs" />
     <Compile Include="Models\MenuListItem.cs" />
@@ -179,6 +180,7 @@
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
+    <None Include="RiseSharp.Core.licenseheader" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\WalletPage.xaml">

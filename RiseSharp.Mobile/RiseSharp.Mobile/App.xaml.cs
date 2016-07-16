@@ -1,4 +1,13 @@
-﻿using RiseSharp.Mobile.Helpers;
+﻿#region copyright
+// <copyright file="app.xaml.cs" >
+// Copyright (c) 2016 Raj Bandi All Rights Reserved
+// Licensed under MIT
+// </copyright>
+// <author>Raj Bandi</author>
+// <date>16/7/2016</date>
+// <summary></summary>
+#endregion
+using RiseSharp.Mobile.Helpers;
 using RiseSharp.Mobile.Models;
 using RiseSharp.Mobile.Services;
 using RiseSharp.Mobile.ViewModels;
@@ -92,19 +101,8 @@ namespace RiseSharp.Mobile
 
         public static AppData AppData
         {
-            get
-            {
-                if (_appData == null)
-                {
-                    _appData = new AppData();
-                    _appData.Save();
-                }
-                return _appData;
-            }
-            internal set
-            {
-                _appData = value;
-            }
+            get { return DataHelper.AppData; }
+            internal set { DataHelper.AppData = value; }
         }
 
         

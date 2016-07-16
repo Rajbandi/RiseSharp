@@ -18,6 +18,8 @@
       <RowDefinition Height="Auto"></RowDefinition>
       <RowDefinition Height="Auto"></RowDefinition>
       <RowDefinition Height="Auto"></RowDefinition>
+      <RowDefinition Height="Auto"></RowDefinition>
+    <RowDefinition Height="Auto"></RowDefinition>
       <RowDefinition Height="*"></RowDefinition>
     </Grid.RowDefinitions>
     
@@ -27,8 +29,12 @@
     <Label Grid.Row="4" Grid.Column="0" HorizontalOptions="Fill" Text="Secret"></Label>
     <Entry Grid.Row="5" Grid.Column="0" Placeholder="Enter Secret (12 words)" Text="{Binding Secret}" HorizontalOptions="Fill" ></Entry>
     <Button Grid.Row="6" Grid.Column="0" Text="Fill Random"  Command="{Binding FillRandomCommand}" HorizontalOptions="EndAndExpand"></Button>
-    <Label Grid.Row="7" Grid.Column="0" HorizontalOptions="Fill" Text="Address"></Label>
-    <Entry Grid.Row="8" Grid.Column="0" Placeholder="Generated Address" Text="{Binding AddressId}" IsEnabled="False"  HorizontalOptions="Fill" ></Entry>
-    <Button Grid.Row="9" Grid.Column="0" Text="Add" Command="{Binding AddAddressCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Button>
+    <Label Grid.Row="7" Grid.Column="0" HorizontalOptions="Fill" Text="Second Secret"></Label>
+    <Entry Grid.Row="8" Grid.Column="0" Placeholder="Enter Second Secret (12 words)" Text="{Binding SecondSecret}" HorizontalOptions="Fill" ></Entry>
+    <Button Grid.Row="9" Grid.Column="0" Text="Fill Random"  Command="{Binding FillSecondRandomCommand}" HorizontalOptions="EndAndExpand"></Button>
+    
+    <Label Grid.Row="10" Grid.Column="0" HorizontalOptions="Fill" Text="Address"></Label>
+    <Entry Grid.Row="11" Grid.Column="0" Placeholder="Generated Address" Text="{Binding AddressId}" IsEnabled="False"  HorizontalOptions="Fill" ></Entry>
+    <Button Grid.Row="12" Grid.Column="0" Text="Add" Command="{Binding AddAddressCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Button>
   </Grid>
 </ContentPage>

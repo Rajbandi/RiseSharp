@@ -1,4 +1,14 @@
-﻿using System.Collections.Generic;
+﻿#region copyright
+// <copyright file="appdata.cs" >
+// Copyright (c) 2016 Raj Bandi All Rights Reserved
+// Licensed under MIT
+// </copyright>
+// <author>Raj Bandi</author>
+// <date>16/7/2016</date>
+// <summary></summary>
+#endregion
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using RiseSharp.Mobile.Helpers;
@@ -14,6 +24,7 @@ namespace RiseSharp.Mobile.Models
         {
             Settings = new Settings();
             Transactions = new List<TransactionHistory>();
+            WalletData = new WalletData();
         }
 
         [DataMember(Name = "IsFirstTime")]
@@ -85,6 +96,25 @@ namespace RiseSharp.Mobile.Models
                 }
             }
 
+        }
+
+        public string CheckValidAddress(WalletAddress address)
+        {
+            var error = "";
+            var name = WalletData.Addresses.FirstOrDefault(x => x.Name == address.Name);
+            if (name != null)
+            {
+                error = "Address already exist with same name";
+            }
+            else
+            {
+                var addr = WalletData.Addresses.FirstOrDefault(x => x.Address == address.Address);
+                if (addr != null)
+                {
+                    error = "Address already exist with same id";
+                }
+            }
+            return error;
         }
     }
 }

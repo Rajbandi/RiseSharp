@@ -1,4 +1,13 @@
-﻿using RiseSharp.Mobile.Views;
+﻿#region copyright
+// <copyright file="MainViewModel.cs" >
+// Copyright (c) 2016 Raj Bandi All Rights Reserved
+// Licensed under MIT
+// </copyright>
+// <author>Raj Bandi</author>
+// <date>16/7/2016</date>
+// <summary></summary>
+#endregion
+using RiseSharp.Mobile.Views;
 using Xamarin.Forms;
 
 namespace RiseSharp.Mobile.ViewModels

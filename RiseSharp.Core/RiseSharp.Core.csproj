@@ -175,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="RiseSharp.Core.licenseheader" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Chaos.NaCl.PCL\Chaos.NaCl.PCL.csproj">

@@ -1,4 +1,13 @@
-﻿using System.Text;
+﻿#region copyright
+// <copyright file="DataHelper.cs" >
+// Copyright (c) 2016 Raj Bandi All Rights Reserved
+// Licensed under MIT
+// </copyright>
+// <author>Raj Bandi</author>
+// <date>16/7/2016</date>
+// <summary></summary>
+#endregion
+using System.Text;
 using RiseSharp.Core.Extensions;
 using RiseSharp.Core.Helpers;
 using RiseSharp.Mobile.Models;
@@ -9,7 +18,8 @@ namespace RiseSharp.Mobile.Helpers
 {
     public static class DataHelper
     {
-      
+        private static AppData _appData;
+         
         public static string EncryptData(string data, string password)
         {
             var dataBytes = Encoding.UTF8.GetBytes(data);
@@ -29,6 +39,24 @@ namespace RiseSharp.Mobile.Helpers
 
             var str = Encoding.UTF8.GetString(decryptedBytes, 0, decryptedBytes.Length);
             return str;
+        }
+
+
+        public static AppData AppData
+        {
+            get
+            {
+                if (_appData == null)
+                {
+                    _appData = new AppData();
+                    _appData.Save();
+                }
+                return _appData;
+            }
+            internal set
+            {
+                _appData = value;
+            }
         }
     }
 }
