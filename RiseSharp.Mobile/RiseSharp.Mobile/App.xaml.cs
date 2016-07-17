@@ -1,10 +1,10 @@
 ﻿#region copyright
-// <copyright file="app.xaml.cs" >
+// <copyright file="App.xaml.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
 // Licensed under MIT
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>16/7/2016</date>
+// <date>17/7/2016</date>
 // <summary></summary>
 #endregion
 using RiseSharp.Mobile.Helpers;
@@ -17,6 +17,7 @@ using RiseSharp.Mobile.Views.Wallet;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
 using XLabs.Ioc;
+using XLabs.Platform.Services;
 
 namespace RiseSharp.Mobile
 {
@@ -36,7 +37,7 @@ namespace RiseSharp.Mobile
             RegisterMessages();
             AppData.Settings.IsSecurityEnabled = true;
             MainPage = GetMainPage();
-        
+          
         }
 
         private static void SetIoc()
@@ -59,6 +60,7 @@ namespace RiseSharp.Mobile
         private static void RegisterServices()
         {
             DependencyService.Register<IDialogService, DialogService>();
+            DependencyService.Register<IQrService, QrService>();
             
         }
 

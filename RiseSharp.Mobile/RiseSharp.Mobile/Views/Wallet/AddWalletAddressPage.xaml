@@ -3,38 +3,54 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RiseSharp.Mobile.Views.Wallet.AddWalletAddressPage"
               Title="{Binding Title}">
-  <Grid VerticalOptions="Center" Padding="5"> 
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="*"></ColumnDefinition>
-    </Grid.ColumnDefinitions>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-    <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="*"></RowDefinition>
-    </Grid.RowDefinitions>
-    
-    <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Text="Add New Address" ></Label>
-    <Label Grid.Row="2" Grid.Column="0" HorizontalOptions="Fill" Text="Name"></Label>
-    <Entry Grid.Row="3" Grid.Column="0" Placeholder="Enter Name" Text="{Binding Name}" HorizontalOptions="Fill" ></Entry>
-    <Label Grid.Row="4" Grid.Column="0" HorizontalOptions="Fill" Text="Secret"></Label>
-    <Entry Grid.Row="5" Grid.Column="0" Placeholder="Enter Secret (12 words)" Text="{Binding Secret}" HorizontalOptions="Fill" ></Entry>
-    <Button Grid.Row="6" Grid.Column="0" Text="Fill Random"  Command="{Binding FillRandomCommand}" HorizontalOptions="EndAndExpand"></Button>
-    <Label Grid.Row="7" Grid.Column="0" HorizontalOptions="Fill" Text="Second Secret"></Label>
-    <Entry Grid.Row="8" Grid.Column="0" Placeholder="Enter Second Secret (12 words)" Text="{Binding SecondSecret}" HorizontalOptions="Fill" ></Entry>
-    <Button Grid.Row="9" Grid.Column="0" Text="Fill Random"  Command="{Binding FillSecondRandomCommand}" HorizontalOptions="EndAndExpand"></Button>
-    
-    <Label Grid.Row="10" Grid.Column="0" HorizontalOptions="Fill" Text="Address"></Label>
-    <Entry Grid.Row="11" Grid.Column="0" Placeholder="Generated Address" Text="{Binding AddressId}" IsEnabled="False"  HorizontalOptions="Fill" ></Entry>
-    <Button Grid.Row="12" Grid.Column="0" Text="Add" Command="{Binding AddAddressCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Button>
-  </Grid>
+  <ScrollView>
+    <Grid VerticalOptions="Center" HorizontalOptions="Fill" Padding="10">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+      </Grid.RowDefinitions>
+
+      <StackLayout Grid.Row="1" HorizontalOptions="Fill">
+        <Label HorizontalOptions="Fill" Text="Name"></Label>
+        <Entry Placeholder="Enter Name" Text="{Binding Name}" HorizontalOptions="Fill" ></Entry>
+      </StackLayout>
+      <StackLayout Grid.Row="2" HorizontalOptions="Fill">
+        <Label HorizontalOptions="Fill" Text="Secret"></Label>
+        <Entry Placeholder="Enter Secret (12 words)" Text="{Binding Secret}" HorizontalOptions="Fill" ></Entry>
+
+      </StackLayout>
+      <StackLayout Grid.Row="3"  HorizontalOptions="EndAndExpand" Orientation="Horizontal" Padding="20">
+        <Button  Text="Fill Random"  Command="{Binding FillRandomCommand}" ></Button>
+        <Button Text="QR Code"  Command="{Binding SecretQrCommand}" ></Button>
+      </StackLayout>
+
+      <StackLayout Grid.Row="4" HorizontalOptions="Fill">
+        <Label HorizontalOptions="Fill" Text="Second Secret"></Label>
+        <Entry Placeholder="Enter Second Secret (12 words)" Text="{Binding SecondSecret}" HorizontalOptions="Fill" ></Entry>
+      </StackLayout>
+
+      <StackLayout Grid.Row="5" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+        <Button Text="QR Code"  Command="{Binding SecondSecretQrCommand}" ></Button>
+      </StackLayout>
+
+      <StackLayout Grid.Row="6" HorizontalOptions="Fill">
+        <Label HorizontalOptions="Fill" Text="Address"></Label>
+        <Entry Placeholder="Generated Address" Text="{Binding AddressId}" IsEnabled="False"  HorizontalOptions="Fill" ></Entry>
+      </StackLayout>
+
+      <StackLayout Grid.Row="7" Orientation="Horizontal" HorizontalOptions="Center" Padding="20">
+        <Button Text="Clear" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Button>
+        <Button Text="Add" Command="{Binding AddAddressCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Button>
+      </StackLayout>
+    </Grid>
+  </ScrollView>
 </ContentPage>

@@ -4,7 +4,7 @@
 // Licensed under MIT
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>16/7/2016</date>
+// <date>17/7/2016</date>
 // <summary></summary>
 #endregion
 using RiseSharp.Mobile.Views;

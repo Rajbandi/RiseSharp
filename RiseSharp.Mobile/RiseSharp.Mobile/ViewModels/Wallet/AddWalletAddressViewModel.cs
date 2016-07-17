@@ -1,10 +1,10 @@
 ﻿#region copyright
-// <copyright file="addwalletaddressviewmodel.cs" >
+// <copyright file="AddWalletAddressViewModel.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
 // Licensed under MIT
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>16/7/2016</date>
+// <date>17/7/2016</date>
 // <summary></summary>
 #endregion
 using System;
@@ -12,7 +12,11 @@ using RiseSharp.Core.Common;
 using RiseSharp.Core.Helpers;
 using RiseSharp.Mobile.Helpers;
 using RiseSharp.Mobile.Models;
+using RiseSharp.Mobile.Services;
+using Xamarin.Forms;
 using XLabs;
+using XLabs.Ioc;
+using XLabs.Platform.Services;
 using Constants = RiseSharp.Mobile.Common.Constants;
 
 namespace RiseSharp.Mobile.ViewModels.Wallet
@@ -46,6 +50,16 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
                 ClearForm();
 
             }, ()=>CanAdd);
+
+            SecretQrCommand = new RelayCommand(() =>
+            {
+                ReadQrSecret();
+            });
+
+            SecondSecretQrCommand = new RelayCommand(() =>
+            {
+                ReadQrSecondSecret();
+            });
         }
 
         #region private properties
@@ -93,7 +107,7 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
             set
             {
                 this.SetProperty(ref _addressId, value);
-
+                CanAdd = CheckIfValid();
             }
         }
 
@@ -136,7 +150,17 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
         {
             Secret = CryptoHelper.GenerateSecret();
             AddressId = CryptoHelper.GetAddress(Secret).IdString;
-            
+        }
+
+        private void ReadQrSecret()
+        {
+            var qrService = DependencyService.Get<IQrService>();
+            MessagingCenter.Send("QRCode","Read");
+
+        }
+
+        private void ReadQrSecondSecret()
+        {
         }
 
         private void FillSecondRandom()
@@ -160,6 +184,7 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
                 if (!string.IsNullOrWhiteSpace(error))
                 {
                     DialogHelper.ShowMessage(error);
+                    return;
                 }
                 try
                 {
@@ -180,6 +205,11 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
         public RelayCommand AddAddressCommand { get; protected set; }
 
         public RelayCommand FillRandomCommand { get; protected set; }
+
+        public RelayCommand SecretQrCommand { get; protected set; }
+
+        public RelayCommand SecondSecretQrCommand { get; protected set; }
+
         public RelayCommand FillSecondRandomCommand { get; protected set; }
 
         public RelayCommand ClearCommand { get; protected set; }

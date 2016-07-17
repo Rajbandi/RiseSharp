@@ -4,7 +4,7 @@
 // Licensed under MIT
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>16/7/2016</date>
+// <date>17/7/2016</date>
 // <summary></summary>
 #endregion
 using System;
@@ -17,7 +17,7 @@ using MenuListItem = RiseSharp.Mobile.Models.MenuListItem;
 
 namespace RiseSharp.Mobile.Views
 {
-    public partial class MainPage : MasterDetailPage
+    public partial class MainPage 
     {
         private Page _detailPage;
         private MenuPage _menuPage;
@@ -46,8 +46,8 @@ namespace RiseSharp.Mobile.Views
             if (item != null && item.ViewType != _detailPage.GetType())
             {
                 _detailPage = (Page)ViewFactory.CreatePage(item.ViewModelType);
-               // Detail.Navigation.PushAsync(new NavigationPage(_detailPage));
-                Detail = new NavigationPage(_detailPage);
+                Detail.Navigation.PushAsync(_detailPage);
+               // Detail = new NavigationPage(_detailPage);
             }
         }
 

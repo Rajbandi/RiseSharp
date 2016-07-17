@@ -1858,6 +1858,12 @@ namespace RiseSharp.Mobile.Droid
 			global::XLabs.Forms.Droid.Resource.Styleable.ViewStubCompat_android_layout = global::RiseSharp.Mobile.Droid.Resource.Styleable.ViewStubCompat_android_layout;
 			global::XLabs.Platform.Resource.String.ApplicationName = global::RiseSharp.Mobile.Droid.Resource.String.ApplicationName;
 			global::XLabs.Platform.Resource.String.Hello = global::RiseSharp.Mobile.Droid.Resource.String.Hello;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::RiseSharp.Mobile.Droid.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscannerfragmentlayout = global::RiseSharp.Mobile.Droid.Resource.Layout.zxingscannerfragmentlayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.String.library_name = global::RiseSharp.Mobile.Droid.Resource.String.library_name;
+			global::ZXing.Mobile.Resource.Id.contentFrame = global::RiseSharp.Mobile.Droid.Resource.Id.contentFrame;
+			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::RiseSharp.Mobile.Droid.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::RiseSharp.Mobile.Droid.Resource.Layout.zxingscannerfragmentlayout;
 		}
 		
 		public partial class Animation
@@ -4206,6 +4212,9 @@ namespace RiseSharp.Mobile.Droid
 			// aapt resource value: 0x7f07001f
 			public const int collapseActionView = 2131165215;
 			
+			// aapt resource value: 0x7f07009f
+			public const int contentFrame = 2131165343;
+			
 			// aapt resource value: 0x7f07004a
 			public const int contentPanel = 2131165258;
 			
@@ -4848,6 +4857,12 @@ namespace RiseSharp.Mobile.Droid
 			// aapt resource value: 0x7f03003e
 			public const int week = 2130903102;
 			
+			// aapt resource value: 0x7f03003f
+			public const int zxingscanneractivitylayout = 2130903103;
+			
+			// aapt resource value: 0x7f030040
+			public const int zxingscannerfragmentlayout = 2130903104;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -4861,11 +4876,11 @@ namespace RiseSharp.Mobile.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f080027
-			public const int ApplicationName = 2131230759;
+			// aapt resource value: 0x7f080028
+			public const int ApplicationName = 2131230760;
 			
-			// aapt resource value: 0x7f080026
-			public const int Hello = 2131230758;
+			// aapt resource value: 0x7f080027
+			public const int Hello = 2131230759;
 			
 			// aapt resource value: 0x7f08000f
 			public const int abc_action_bar_home_description = 2131230735;
@@ -4942,8 +4957,8 @@ namespace RiseSharp.Mobile.Droid
 			// aapt resource value: 0x7f08002a
 			public const int invalid_date = 2131230762;
 			
-			// aapt resource value: 0x7f080028
-			public const int library_name = 2131230760;
+			// aapt resource value: 0x7f080026
+			public const int library_name = 2131230758;
 			
 			// aapt resource value: 0x7f08002b
 			public const int month_name_format = 2131230763;

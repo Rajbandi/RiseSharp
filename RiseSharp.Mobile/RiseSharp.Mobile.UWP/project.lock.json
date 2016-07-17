@@ -1927,6 +1927,18 @@
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
         }
+      },
+      "ZXing.Net.Mobile/2.1.0-beta1": {
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -3707,6 +3719,18 @@
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
         }
+      },
+      "ZXing.Net.Mobile/2.1.0-beta1": {
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -5450,6 +5474,18 @@
         },
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile/2.1.0-beta1": {
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
         }
       }
     },
@@ -7237,6 +7273,18 @@
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
         }
+      },
+      "ZXing.Net.Mobile/2.1.0-beta1": {
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -8980,6 +9028,18 @@
         },
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile/2.1.0-beta1": {
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
         }
       }
     },
@@ -10767,6 +10827,18 @@
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
         }
+      },
+      "ZXing.Net.Mobile/2.1.0-beta1": {
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -12510,6 +12582,18 @@
         },
         "runtime": {
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile/2.1.0-beta1": {
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
         }
       }
     }
@@ -16006,6 +16090,31 @@
         "XLabs.Serialization.nuspec",
         "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll"
       ]
+    },
+    "ZXing.Net.Mobile/2.1.0-beta1": {
+      "sha512": "FXEZ7n+UHExhrfjM3F/UDH5IEScT2kJ37YSoXWMrpKxniOxORXPKf6ZtViIz9i5d6fiYbYZ2jwlu2XTzFojbGg==",
+      "type": "package",
+      "files": [
+        "ZXing.Net.Mobile.2.1.0-beta1.nupkg.sha512",
+        "ZXing.Net.Mobile.nuspec",
+        "lib/MonoAndroid403/ZXing.Net.Mobile.Core.dll",
+        "lib/MonoAndroid403/ZXingNetMobile.dll",
+        "lib/MonoAndroid403/zxing.portable.dll",
+        "lib/UAP10/ZXing.Net.Mobile.Core.dll",
+        "lib/UAP10/ZXingNetMobile.dll",
+        "lib/UAP10/ZXingNetMobile.pri",
+        "lib/UAP10/ZXingNetMobile/ZXingNetMobile.xr.xml",
+        "lib/UAP10/zxing.portable.dll",
+        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll",
+        "lib/Xamarin.iOS10/ZXingNetMobile.dll",
+        "lib/Xamarin.iOS10/zxing.portable.dll",
+        "lib/portable-net45+netcore45+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10/ZXing.Net.Mobile.Core.dll",
+        "lib/portable-net45+netcore45+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10/ZXingNetMobile.dll",
+        "lib/portable-net45+netcore45+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10/zxing.portable.dll",
+        "lib/wp8/ZXing.Net.Mobile.Core.dll",
+        "lib/wp8/ZXingNetMobile.dll",
+        "lib/wp8/zxing.portable.dll"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -16015,7 +16124,8 @@
       "SQLite.Net-PCL >= 3.1.1",
       "XLabs.Forms >= 2.2.0-pre05",
       "XLabs.Platform >= 2.2.0-pre05",
-      "Xamarin.Forms >= 2.3.0.107"
+      "Xamarin.Forms >= 2.3.0.107",
+      "ZXing.Net.Mobile >= 2.1.0-beta1"
     ],
     "UAP,Version=v10.0": []
   }

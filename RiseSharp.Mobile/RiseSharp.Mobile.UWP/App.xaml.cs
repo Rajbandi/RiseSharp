@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using XLabs.Ioc;
+using ZXing.Mobile;
 
 namespace RiseSharp.Mobile.UWP
 {
@@ -62,6 +63,7 @@ namespace RiseSharp.Mobile.UWP
 
                 Xamarin.Forms.Forms.Init(e);
 
+                
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application

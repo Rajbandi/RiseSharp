@@ -56,8 +56,11 @@ namespace RiseSharp.Mobile.WinPhone
 
                 // TODO: change this value to a cache size that is appropriate for your application
                 rootFrame.CacheSize = 1;
-
+                
                 Xamarin.Forms.Forms.Init(e);
+
+                var app = new XFormsAppWin();
+                app.Init(this);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

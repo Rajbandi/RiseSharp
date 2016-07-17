@@ -9,6 +9,7 @@ using Android.OS;
 using Xamarin.Forms;
 using XLabs.Forms;
 using XLabs.Ioc;
+using ZXing.Mobile;
 
 namespace RiseSharp.Mobile.Droid
 {
@@ -19,9 +20,11 @@ namespace RiseSharp.Mobile.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            
             base.OnCreate(bundle);
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            ZXing.Net.Mobile.Forms.Android.Platform.Init();
+
             if (!Resolver.IsSet) SetIoc();
             LoadApplication(new App());
 
