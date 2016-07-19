@@ -1,16 +1,16 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
+using Windows.Storage;
 using Newtonsoft.Json;
 using RiseSharp.Mobile.Common;
 using RiseSharp.Mobile.Models;
 using RiseSharp.Mobile.Services;
-using System.IO;
-using Windows.Storage;
-using RiseSharp.Mobile.WinPhone;
+using RiseSharp.Mobile.UWP.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(AppDataService))]
-namespace RiseSharp.Mobile.WinPhone
+namespace RiseSharp.Mobile.UWP.Services
 {
     public class AppDataService : IAppDataService
     {

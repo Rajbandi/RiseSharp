@@ -26,7 +26,7 @@ namespace RiseSharp.Core.Api
         private readonly UriBuilder _url;
         private readonly HttpClient _client;
 
-        public RiseNodeApi(ApiInfo info)
+        public RiseNodeApi(ApiInfo info, HttpClientHandler handler = null)
         {
             var useHttps = info.UseHttps ?? Constants.DefaultUseHttps;
 
@@ -40,7 +40,12 @@ namespace RiseSharp.Core.Api
                 _url.Port = info.Port.Value;
             }
 
-            _client = new HttpClient();
+            if (handler == null)
+                _client = new HttpClient();
+            else
+            {
+                _client = new HttpClient(handler);
+            }
         }
 
         #region delegates related api
@@ -551,7 +556,7 @@ namespace RiseSharp.Core.Api
         public TransactionResponse GetTransaction(TransactionRequest req)
         {
             var response = GetTransactionAsync(req).GetAwaiter().GetResult();
-            
+
             return response;
         }
 
@@ -812,7 +817,7 @@ namespace RiseSharp.Core.Api
         public async Task<OpenAccountResponse> OpenAccountAsync(OpenAccountRequest acc)
         {
             _url.Path = Constants.ApiPostAccountOpen;
-            var response = await _client.PostJsonAsync<OpenAccountRequest, OpenAccountResponse>(_url.ToString(),  acc);
+            var response = await _client.PostJsonAsync<OpenAccountRequest, OpenAccountResponse>(_url.ToString(), acc);
             ResetPath();
             return response;
         }
@@ -954,7 +959,7 @@ namespace RiseSharp.Core.Api
         public MultiSignaturesAccountsResponse GetMultiSignaturesAccounts(MultiSignaturesAccountsRequest req)
         {
             var response = GetMultiSignaturesAccountsAsync(req).GetAwaiter().GetResult();
-            
+
             return response;
         }
 

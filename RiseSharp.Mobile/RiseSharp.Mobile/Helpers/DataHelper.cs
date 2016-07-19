@@ -7,12 +7,17 @@
 // <date>17/7/2016</date>
 // <summary></summary>
 #endregion
+
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using RiseSharp.Core.Extensions;
 using RiseSharp.Core.Helpers;
+using RiseSharp.Core.Services;
 using RiseSharp.Mobile.Models;
 using RiseSharp.Mobile.Services;
 using Xamarin.Forms;
+using Xamarin.Android.Net;
 
 namespace RiseSharp.Mobile.Helpers
 {
@@ -41,6 +46,23 @@ namespace RiseSharp.Mobile.Helpers
             return str;
         }
 
+        public static  async Task RefreshAccounts()
+        {
+            HttpClientHandler handler = null;
+            var networkService = DependencyService.Get<INetworkService>();
+            if (networkService != null)
+            {
+                
+                handler = networkService.GetClientHandler();
+                foreach (var address in AppData.WalletData.Addresses)
+                {
+
+                    var service = new AccountService(address.Secret, address.SecondSecret, null, handler);
+                    address.Balance = await service.GetBalanceAsync();
+                }
+            }
+         
+        }
 
         public static AppData AppData
         {

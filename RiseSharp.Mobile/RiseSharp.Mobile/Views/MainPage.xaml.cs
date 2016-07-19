@@ -36,7 +36,14 @@ namespace RiseSharp.Mobile.Views
             {
                 Text = "Tool1"
             });
-            
+            MessagingCenter.Subscribe<string>("Progress", "Show", (sender) =>
+            {
+                IsBusy = true;
+            });
+            MessagingCenter.Subscribe<string>("Progress", "Hide", (sender) =>
+            {
+                IsBusy = false;
+            });
         }
 
         private void MainMenuOnItemSelected(object sender, SelectedItemChangedEventArgs selectedItemChangedEventArgs)
@@ -45,9 +52,16 @@ namespace RiseSharp.Mobile.Views
             IsPresented = (Device.Idiom == TargetIdiom.Desktop || Device.Idiom == TargetIdiom.Tablet);
             if (item != null && item.ViewType != _detailPage.GetType())
             {
-                _detailPage = (Page)ViewFactory.CreatePage(item.ViewModelType);
-                Detail.Navigation.PushAsync(_detailPage);
-               // Detail = new NavigationPage(_detailPage);
+                try
+                {
+                    _detailPage = (Page) ViewFactory.CreatePage(item.ViewModelType);
+                    Detail.Navigation.PushAsync(_detailPage);
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+                // Detail = new NavigationPage(_detailPage);
             }
         }
 

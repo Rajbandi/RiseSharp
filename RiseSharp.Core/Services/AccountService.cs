@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using RiseSharp.Core.Api;
 using RiseSharp.Core.Api.Messages.Node;
@@ -32,7 +33,7 @@ namespace RiseSharp.Core.Services
         private readonly IRisePeerApi _peerApi;
         private readonly Address _address;
 
-        public AccountService(string secret, string secondSecret="", ApiInfo apiInfo = null )
+        public AccountService(string secret, string secondSecret="", ApiInfo apiInfo = null, HttpClientHandler handler = null )
         {
             if (string.IsNullOrWhiteSpace(secret))
             {
@@ -44,7 +45,7 @@ namespace RiseSharp.Core.Services
                 _apiInfo = ApiInfo.GetDefaultApiInfo();
             }
             
-            _nodeApi = new RiseNodeApi(_apiInfo);
+            _nodeApi = new RiseNodeApi(_apiInfo, handler);
             _peerApi = new RisePeerApi(_apiInfo);
 
             _secret = secret;
@@ -210,8 +211,29 @@ namespace RiseSharp.Core.Services
 
             return true;
         }
+        /// <summary>
+        /// Gets account balance synchronously
+        /// </summary>
+        /// <returns>balance</returns>
+        public  double GetBalance()
+        {
+            var balance = GetBalanceAsync().GetAwaiter().GetResult();
+            return balance;
+        }
 
+        /// <summary>
+        /// Gets account balance asynchronously
+        /// </summary>
+        /// <returns>balance</returns>
+        public async Task<double> GetBalanceAsync()
+        {
+            var response  = await _nodeApi.GetAccountBalanceAsync(new AccountRequest
+            {
+                Address = _address.IdString
+            });
 
+            return response.BalanceAmount;
+        }
         
     }
 }

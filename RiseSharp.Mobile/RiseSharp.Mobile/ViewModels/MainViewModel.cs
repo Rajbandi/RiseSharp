@@ -22,14 +22,13 @@ namespace RiseSharp.Mobile.ViewModels
         public MainViewModel()
         {
             //Title = "Rise Wallet";
-           
+        
         }
 
         #endregion
 
         #region public properties
 
-       
 
         #endregion
     }

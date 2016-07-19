@@ -2,13 +2,13 @@ using System.IO;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RiseSharp.Mobile.Common;
-using RiseSharp.Mobile.Droid;
+using RiseSharp.Mobile.iOS.Services;
 using RiseSharp.Mobile.Models;
 using RiseSharp.Mobile.Services;
 using Xamarin.Forms;
 
 [assembly:Dependency(typeof(AppDataService))]
-namespace RiseSharp.Mobile.Droid
+namespace RiseSharp.Mobile.iOS.Services
 {
     public class AppDataService : IAppDataService
     {

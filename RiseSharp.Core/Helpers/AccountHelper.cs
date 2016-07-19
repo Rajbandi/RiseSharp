@@ -23,7 +23,14 @@ namespace RiseSharp.Core.Helpers
             };
         }
 
-      
-
+        public static double ConvertBalance(long amt)
+        {
+            double damt = 0;
+            if (amt > 0)
+            {
+                damt = amt / Math.Pow(10,  8);
+            }
+            return damt;
+        }
     }
 }

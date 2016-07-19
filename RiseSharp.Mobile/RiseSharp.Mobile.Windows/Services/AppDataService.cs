@@ -6,11 +6,11 @@ using Newtonsoft.Json;
 using RiseSharp.Mobile.Common;
 using RiseSharp.Mobile.Models;
 using RiseSharp.Mobile.Services;
-using RiseSharp.Mobile.Windows;
+using RiseSharp.Mobile.Windows.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(AppDataService))]
-namespace RiseSharp.Mobile.Windows
+namespace RiseSharp.Mobile.Windows.Services
 {
     public class AppDataService : IAppDataService
     {

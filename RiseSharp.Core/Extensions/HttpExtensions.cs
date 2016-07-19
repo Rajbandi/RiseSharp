@@ -7,6 +7,8 @@
 // <date>16/7/2016</date>
 // <summary></summary>
 #endregion
+
+using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,9 +36,9 @@ namespace RiseSharp.Core.Extensions
             result.EnsureSuccessStatusCode();
         }
 
-        public static async Task<T2> PostJsonAsync<T1,T2>(this HttpClient client, string url, T1 req)
-         {
-            var result = await client.PostAsync(url, new StringContent(req.ToString(),Encoding.UTF8, "application/json"));
+        public static async Task<T2> PostJsonAsync<T1, T2>(this HttpClient client, string url, T1 req)
+        {
+            var result = await client.PostAsync(url, new StringContent(req.ToString(), Encoding.UTF8, "application/json"));
             result.EnsureSuccessStatusCode();
             if (result.Content != null)
             {

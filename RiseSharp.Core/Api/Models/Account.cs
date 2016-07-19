@@ -7,6 +7,8 @@
 // <date>16/7/2016</date>
 // <summary></summary>
 #endregion
+
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -41,5 +43,20 @@ namespace RiseSharp.Core.Api.Models
 
         [DataMember(Name = "u_multisignatures")]
         public IList<object> UMultisignatures { get; set; }
+
+        public double BalanceAmount
+        {
+            get
+            {
+                long amt;
+                if (long.TryParse(Balance, out amt))
+                {
+                    var doubleAmt = amt * Math.Pow(10, 1.0 / 8);
+                    return doubleAmt;
+                }
+
+                return 0;
+            }
+        }
     }
 }

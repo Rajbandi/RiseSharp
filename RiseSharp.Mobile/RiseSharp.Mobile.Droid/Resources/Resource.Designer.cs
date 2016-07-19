@@ -26,6 +26,7 @@ namespace RiseSharp.Mobile.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::ModernHttpClient.Resource.String.library_name = global::RiseSharp.Mobile.Droid.Resource.String.library_name;
 			global::NGraphics.Android.Resource.String.library_name = global::RiseSharp.Mobile.Droid.Resource.String.library_name;
 			global::Splat.Resource.String.library_name = global::RiseSharp.Mobile.Droid.Resource.String.library_name;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::RiseSharp.Mobile.Droid.Resource.String.ApplicationName;

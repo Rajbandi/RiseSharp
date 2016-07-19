@@ -9,6 +9,7 @@
 #endregion
 using System.Runtime.Serialization;
 using RiseSharp.Core.Api.Messages.Common;
+using RiseSharp.Core.Helpers;
 
 namespace RiseSharp.Core.Api.Messages.Node
 {
@@ -23,5 +24,14 @@ namespace RiseSharp.Core.Api.Messages.Node
 
         [DataMember(Name = "unconfirmedBalance")]
         public long UnconfirmedBalance { get; set; }
+
+        public double BalanceAmount
+        {
+            get
+            {
+                return AccountHelper.ConvertBalance(Balance);
+            }
+        }
+
     }
 }
