@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Acr.UserDialogs;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -24,8 +24,8 @@ namespace RiseSharp.Mobile.Droid
             base.OnCreate(bundle);
             global::Xamarin.Forms.Forms.Init(this, bundle);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
-
             if (!Resolver.IsSet) SetIoc();
+            UserDialogs.Init(this);
             LoadApplication(new App());
 
         }

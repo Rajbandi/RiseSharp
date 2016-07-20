@@ -17,7 +17,7 @@ using MenuListItem = RiseSharp.Mobile.Models.MenuListItem;
 
 namespace RiseSharp.Mobile.Views
 {
-    public partial class MainPage 
+    public partial class MainPage
     {
         private Page _detailPage;
         private MenuPage _menuPage;
@@ -29,7 +29,7 @@ namespace RiseSharp.Mobile.Views
             _menuPage.MenuList.ItemSelected += MainMenuOnItemSelected;
 
             _detailPage = (Page)ViewFactory.CreatePage<DashboardViewModel, DashboardPage>();
-            
+
             Master = _menuPage;
             Detail = new NavigationPage(_detailPage);
             Detail.ToolbarItems.Add(new ToolbarItem
@@ -44,6 +44,7 @@ namespace RiseSharp.Mobile.Views
             {
                 IsBusy = false;
             });
+
         }
 
         private void MainMenuOnItemSelected(object sender, SelectedItemChangedEventArgs selectedItemChangedEventArgs)
@@ -54,17 +55,19 @@ namespace RiseSharp.Mobile.Views
             {
                 try
                 {
-                    _detailPage = (Page) ViewFactory.CreatePage(item.ViewModelType);
+                    _detailPage = (Page)ViewFactory.CreatePage(item.ViewModelType);
+                    var grid = _detailPage.FindByName<Grid>("MainGrid");
+                  
                     Detail.Navigation.PushAsync(_detailPage);
                 }
                 catch (Exception ex)
                 {
-                    
+
                 }
                 // Detail = new NavigationPage(_detailPage);
             }
         }
-
+      
         #region private properties
 
 

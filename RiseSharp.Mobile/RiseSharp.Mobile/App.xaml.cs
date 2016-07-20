@@ -7,6 +7,8 @@
 // <date>17/7/2016</date>
 // <summary></summary>
 #endregion
+
+using Acr.UserDialogs;
 using RiseSharp.Mobile.Helpers;
 using RiseSharp.Mobile.Models;
 using RiseSharp.Mobile.Services;
@@ -30,7 +32,7 @@ namespace RiseSharp.Mobile
 
         public App()
         {
-            //  InitializeComponent();
+             InitializeComponent();
             RegisterServices();
             SetIoc();
             RegisterViews();
@@ -61,7 +63,6 @@ namespace RiseSharp.Mobile
         {
             DependencyService.Register<IDialogService, DialogService>();
             DependencyService.Register<IQrService, QrService>();
-            
         }
 
         public static SimpleContainer Container

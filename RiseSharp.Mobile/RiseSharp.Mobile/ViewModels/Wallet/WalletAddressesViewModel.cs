@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Acr.UserDialogs;
 using RiseSharp.Mobile.Common;
 using RiseSharp.Mobile.Helpers;
 using RiseSharp.Mobile.Models;
@@ -37,10 +38,19 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
 
         private async void RefreshAccounts()
         {
-            MessagingCenter.Send("Message","Show");
+            
+            UserDialogs.Instance.ShowLoading("Refreshing Balances");
+           
+            IsBusy = true;
+            await Task.Delay(3000);
+            //MessagingCenter.Send("Message","Show");
             await DataHelper.RefreshAccounts();
             Addresses = DataHelper.AppData.WalletData.Addresses.ToList();
-            MessagingCenter.Send("Message","Hide");
+            //MessagingCenter.Send("Message","Hide");
+            IsBusy = false;
+      
+            UserDialogs.Instance.HideLoading();
+           
         }
 
         public IEnumerable<WalletAddress> Addresses

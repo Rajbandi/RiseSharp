@@ -5,6 +5,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Acr.UserDialogs;
 using XLabs.Forms;
 using XLabs.Ioc;
 
@@ -61,7 +62,7 @@ namespace RiseSharp.Mobile.WinPhone
 
                 var app = new XFormsAppWin();
                 app.Init(this);
-
+                
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     // TODO: Load state from previously suspended application
