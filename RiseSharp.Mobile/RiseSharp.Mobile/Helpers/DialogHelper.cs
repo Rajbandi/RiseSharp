@@ -7,6 +7,8 @@
 // <date>17/7/2016</date>
 // <summary></summary>
 #endregion
+
+using Acr.UserDialogs;
 using RiseSharp.Mobile.Services;
 using Xamarin.Forms;
 
@@ -16,19 +18,11 @@ namespace RiseSharp.Mobile.Helpers
     {
         public static void ShowMessage(string message)
         {
-            var dialogService = DependencyService.Get<IDialogService>();
-            if (dialogService != null)
-            {
-                dialogService.DisplayAlert("Message", message, "Ok");
-            }
+                UserDialogs.Instance.Alert(message, "Message", "Ok");
         }
         public static void ShowError(string message)
         {
-            var dialogService = DependencyService.Get<IDialogService>();
-            if (dialogService != null)
-            {
-                dialogService.DisplayAlert("Error", message, "Ok");
-            }
+                UserDialogs.Instance.ShowError(message);
         }
     }
 }

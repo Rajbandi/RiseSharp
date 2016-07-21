@@ -49,10 +49,8 @@
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\AppData.cs" />
     <Compile Include="Models\WalletData.cs" />
-    <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\IAppDataService.cs" />
     <Compile Include="Services\IDatabaseService.cs" />
-    <Compile Include="Services\IDialogService.cs" />
     <Compile Include="Services\INetworkService.cs" />
     <Compile Include="Services\IQrService.cs" />
     <Compile Include="Services\IWalletService.cs" />

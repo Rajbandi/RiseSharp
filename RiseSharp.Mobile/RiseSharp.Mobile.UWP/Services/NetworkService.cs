@@ -9,15 +9,18 @@ namespace RiseSharp.Mobile.UWP.Services
 {
     public class NetworkService : INetworkService
     {
-        public HttpClientHandler GetClientHandler()
+        public HttpMessageHandler GetClientHandler()
         {
             return null;
         }
 
-        public bool IsConnected()
+        public bool IsConnected
         {
-            var status = Windows.Networking.Connectivity.NetworkInformation.GetInternetConnectionProfile();
-            return status != null && (status.IsWlanConnectionProfile || status.IsWwanConnectionProfile);
+            get
+            {
+                var status = Windows.Networking.Connectivity.NetworkInformation.GetInternetConnectionProfile();
+                return status != null && (status.IsWlanConnectionProfile || status.IsWwanConnectionProfile);
+            }
         }
     }
 }

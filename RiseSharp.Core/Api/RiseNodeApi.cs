@@ -26,7 +26,7 @@ namespace RiseSharp.Core.Api
         private readonly UriBuilder _url;
         private readonly HttpClient _client;
 
-        public RiseNodeApi(ApiInfo info, HttpClientHandler handler = null)
+        public RiseNodeApi(ApiInfo info, HttpMessageHandler handler = null)
         {
             var useHttps = info.UseHttps ?? Constants.DefaultUseHttps;
 

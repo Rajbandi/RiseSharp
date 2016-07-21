@@ -38,6 +38,14 @@ namespace RiseSharp.Mobile
             RegisterViews();
             RegisterMessages();
             AppData.Settings.IsSecurityEnabled = true;
+
+            var networkService = DependencyService.Get<INetworkService>();
+            if (!networkService.IsConnected)
+            {
+                UserDialogs.Instance.ShowError("No internet connection available...");
+              
+            }
+
             MainPage = GetMainPage();
           
         }
@@ -61,7 +69,6 @@ namespace RiseSharp.Mobile
 
         private static void RegisterServices()
         {
-            DependencyService.Register<IDialogService, DialogService>();
             DependencyService.Register<IQrService, QrService>();
         }
 

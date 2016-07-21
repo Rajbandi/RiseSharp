@@ -9,7 +9,10 @@
 #endregion
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Acr.UserDialogs;
+using RiseSharp.Mobile.Services;
 using RiseSharp.Mobile.ViewModels;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
@@ -26,30 +29,51 @@ namespace RiseSharp.Mobile.Views
             InitializeComponent();
 
             _menuPage = (MenuPage)ViewFactory.CreatePage<MenuViewModel, MenuPage>();
-            _menuPage.MenuList.ItemSelected += MainMenuOnItemSelected;
+            _menuPage.MenuList.ItemTapped += MenuList_ItemTapped;
 
             _detailPage = (Page)ViewFactory.CreatePage<DashboardViewModel, DashboardPage>();
 
             Master = _menuPage;
-            Detail = new NavigationPage(_detailPage);
+            var nav = new NavigationPage(_detailPage);
+            Detail = nav;
             Detail.ToolbarItems.Add(new ToolbarItem
             {
                 Text = "Tool1"
             });
-            MessagingCenter.Subscribe<string>("Progress", "Show", (sender) =>
-            {
-                IsBusy = true;
-            });
-            MessagingCenter.Subscribe<string>("Progress", "Hide", (sender) =>
-            {
-                IsBusy = false;
-            });
 
+            nav.Popped += (sender, args) =>
+            {
+                var navPage = (NavigationPage) sender;
+                if (navPage != null)
+                {
+                    var stack = navPage.Navigation.NavigationStack;
+                    if (stack.Count > 0)
+                    {
+                        var page = stack[stack.Count - 1];
+                        var menuList = (IEnumerable<MenuListItem>)_menuPage.MenuList.ItemsSource;
+                        if (menuList != null)
+                        {
+                            var menuItem = menuList.FirstOrDefault(x => x.Title == page.Title);
+                            if (menuItem != null)
+                            {
+                                _menuPage.MenuList.SelectedItem = menuItem;
+                            }
+
+                        }
+                    }
+                }
+            };
+            //nav.Pushed += (sender, args) =>
+            //{
+
+            //};
         }
 
-        private void MainMenuOnItemSelected(object sender, SelectedItemChangedEventArgs selectedItemChangedEventArgs)
+    
+
+        private void MenuList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var item = selectedItemChangedEventArgs.SelectedItem as MenuListItem;
+            var item = e.Item as MenuListItem;
             IsPresented = (Device.Idiom == TargetIdiom.Desktop || Device.Idiom == TargetIdiom.Tablet);
             if (item != null && item.ViewType != _detailPage.GetType())
             {
@@ -62,7 +86,7 @@ namespace RiseSharp.Mobile.Views
                 }
                 catch (Exception ex)
                 {
-
+                    UserDialogs.Instance.ShowError("Oops. Error while loading details...");
                 }
                 // Detail = new NavigationPage(_detailPage);
             }

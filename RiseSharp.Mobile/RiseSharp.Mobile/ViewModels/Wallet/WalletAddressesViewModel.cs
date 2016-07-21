@@ -38,19 +38,8 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
 
         private async void RefreshAccounts()
         {
-            
-            UserDialogs.Instance.ShowLoading("Refreshing Balances");
-           
-            IsBusy = true;
-            await Task.Delay(3000);
-            //MessagingCenter.Send("Message","Show");
             await DataHelper.RefreshAccounts();
             Addresses = DataHelper.AppData.WalletData.Addresses.ToList();
-            //MessagingCenter.Send("Message","Hide");
-            IsBusy = false;
-      
-            UserDialogs.Instance.HideLoading();
-           
         }
 
         public IEnumerable<WalletAddress> Addresses

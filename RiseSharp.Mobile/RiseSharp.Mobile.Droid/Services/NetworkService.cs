@@ -11,14 +11,19 @@ namespace RiseSharp.Mobile.Droid.Services
 {
     public class NetworkService : INetworkService
     {
-        public HttpClientHandler GetClientHandler()
+        public HttpMessageHandler GetClientHandler()
         {
             return new NativeMessageHandler();
         }
-        public bool IsConnected()
+        public bool IsConnected
         {
-            var status = Reachability.InternetConnectionStatus();
-            return ((status.Equals(NetworkStatus.ReachableViaCarrierDataNetwork)) || (status.Equals(NetworkStatus.ReachableViaWiFiNetwork)) || (status.Equals(NetworkStatus.ReachableViaUnknownNetwork)));
+            get
+            {
+                var status = Reachability.InternetConnectionStatus();
+                return ((status.Equals(NetworkStatus.ReachableViaCarrierDataNetwork)) ||
+                        (status.Equals(NetworkStatus.ReachableViaWiFiNetwork)) ||
+                        (status.Equals(NetworkStatus.ReachableViaUnknownNetwork)));
+            }
         }
     }
 }

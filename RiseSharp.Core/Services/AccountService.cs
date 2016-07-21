@@ -33,7 +33,7 @@ namespace RiseSharp.Core.Services
         private readonly IRisePeerApi _peerApi;
         private readonly Address _address;
 
-        public AccountService(string secret, string secondSecret="", ApiInfo apiInfo = null, HttpClientHandler handler = null )
+        public AccountService(string secret, string secondSecret="", ApiInfo apiInfo = null, HttpMessageHandler handler = null )
         {
             if (string.IsNullOrWhiteSpace(secret))
             {

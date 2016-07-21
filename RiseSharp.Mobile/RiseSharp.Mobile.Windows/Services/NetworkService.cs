@@ -9,15 +9,19 @@ namespace RiseSharp.Mobile.Windows.Services
 {
     public class NetworkService : INetworkService
     {
-        public HttpClientHandler GetClientHandler()
+        public HttpMessageHandler GetClientHandler()
         {
             return null;
         }
-        public bool IsConnected()
+        public bool IsConnected
         {
-            ConnectionProfile connections = NetworkInformation.GetInternetConnectionProfile();
-            bool internet = connections != null && connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
-            return internet;
+            get
+            {
+                ConnectionProfile connections = NetworkInformation.GetInternetConnectionProfile();
+                bool internet = connections != null &&
+                                connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+                return internet;
+            }
         }
 
     }

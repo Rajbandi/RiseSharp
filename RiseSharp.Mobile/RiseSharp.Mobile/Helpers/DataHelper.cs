@@ -8,9 +8,11 @@
 // <summary></summary>
 #endregion
 
+using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Acr.UserDialogs;
 using RiseSharp.Core.Extensions;
 using RiseSharp.Core.Helpers;
 using RiseSharp.Core.Services;
@@ -48,20 +50,35 @@ namespace RiseSharp.Mobile.Helpers
 
         public static  async Task RefreshAccounts()
         {
-            HttpClientHandler handler = null;
-            var networkService = DependencyService.Get<INetworkService>();
-            if (networkService != null)
+            try
             {
-                
-                handler = networkService.GetClientHandler();
-                foreach (var address in AppData.WalletData.Addresses)
+                HttpMessageHandler handler = null;
+                var networkService = DependencyService.Get<INetworkService>();
+                if (networkService != null)
                 {
+                    if (!networkService.IsConnected)
+                    {
+                        UserDialogs.Instance.ShowError("No Internet connection available",3000);
+                        return;
+                    }
+                    UserDialogs.Instance.ShowLoading("Refreshing Balances");
+                    await Task.Delay(3000);
+                    handler = networkService.GetClientHandler();
+                    foreach (var address in AppData.WalletData.Addresses)
+                    {
 
-                    var service = new AccountService(address.Secret, address.SecondSecret, null, handler);
-                    address.Balance = await service.GetBalanceAsync();
+                        var service = new AccountService(address.Secret, address.SecondSecret, null, handler);
+                        address.Balance = await service.GetBalanceAsync();
+                    }
+                    UserDialogs.Instance.HideLoading();
                 }
             }
-         
+            catch (Exception ex)
+            {
+                UserDialogs.Instance.HideLoading();
+                UserDialogs.Instance.ShowError("An error occured while refreshing balances "+ex.Message, 3000);
+            }
+
         }
 
         public static AppData AppData
