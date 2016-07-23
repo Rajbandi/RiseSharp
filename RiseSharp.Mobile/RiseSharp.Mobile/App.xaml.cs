@@ -42,7 +42,7 @@ namespace RiseSharp.Mobile
             var networkService = DependencyService.Get<INetworkService>();
             if (!networkService.IsConnected)
             {
-                UserDialogs.Instance.ShowError("No internet connection available...");
+                DialogHelper.ShowError("No internet connection available...");
               
             }
 
@@ -70,6 +70,7 @@ namespace RiseSharp.Mobile
         private static void RegisterServices()
         {
             DependencyService.Register<IQrService, QrService>();
+            DependencyService.Register<IDialogService, DialogService>();
         }
 
         public static SimpleContainer Container

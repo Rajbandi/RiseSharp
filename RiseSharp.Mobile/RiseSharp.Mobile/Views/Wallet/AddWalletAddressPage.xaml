@@ -17,6 +17,8 @@
         <RowDefinition Height="Auto"></RowDefinition>
         <RowDefinition Height="Auto"></RowDefinition>
         <RowDefinition Height="Auto"></RowDefinition>
+         <RowDefinition Height="Auto"></RowDefinition>
+
       </Grid.RowDefinitions>
 
       <StackLayout Grid.Row="1" HorizontalOptions="Fill">
@@ -31,6 +33,7 @@
       <StackLayout Grid.Row="3"  HorizontalOptions="EndAndExpand" Orientation="Horizontal" Padding="20">
         <Button  Text="Fill Random"  Command="{Binding FillRandomCommand}" ></Button>
         <Button Text="QR Code"  Command="{Binding SecretQrCommand}" ></Button>
+        <Button Text="Generate" Command="{Binding GenerateCommand}" ></Button>
       </StackLayout>
 
       <StackLayout Grid.Row="4" HorizontalOptions="Fill">
@@ -44,11 +47,11 @@
 
       <StackLayout Grid.Row="6" HorizontalOptions="Fill">
         <Label HorizontalOptions="Fill" Text="Address"></Label>
-        <Entry Placeholder="Generated Address" Text="{Binding AddressId}" IsEnabled="False"  HorizontalOptions="Fill" ></Entry>
+        <Entry Placeholder="Click Generate button for address" Text="{Binding AddressId}" IsEnabled="False"  HorizontalOptions="Fill" ></Entry>
       </StackLayout>
 
       <StackLayout Grid.Row="7" Orientation="Horizontal" HorizontalOptions="Center" Padding="20">
-        <Button Text="Clear" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Button>
+        <Button Text="Clear" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Command="{Binding ClearCommand}"></Button>
         <Button Text="Add" Command="{Binding AddAddressCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Button>
       </StackLayout>
     </Grid>

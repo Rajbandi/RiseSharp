@@ -52,33 +52,30 @@ namespace RiseSharp.Mobile.Helpers
         {
             try
             {
-                HttpMessageHandler handler = null;
                 var networkService = DependencyService.Get<INetworkService>();
                 if (networkService != null)
                 {
                     if (!networkService.IsConnected)
                     {
-                        UserDialogs.Instance.ShowError("No Internet connection available",3000);
+                        DialogHelper.ShowError("No Internet connection available");
                         return;
                     }
-                    UserDialogs.Instance.ShowLoading("Refreshing Balances");
-                    await Task.Delay(3000);
-                    handler = networkService.GetClientHandler();
+                    DialogHelper.ShowLoading("Refreshing Balances");
+                    //await Task.Delay(3000);
+                    var handler = networkService.GetMessageHandler();
                     foreach (var address in AppData.WalletData.Addresses)
                     {
-
                         var service = new AccountService(address.Secret, address.SecondSecret, null, handler);
-                        address.Balance = await service.GetBalanceAsync();
+                        address.Balance = await service.GetBalanceAsync().ConfigureAwait(false);
                     }
-                    UserDialogs.Instance.HideLoading();
+                    DialogHelper.HideLoading();
                 }
             }
             catch (Exception ex)
             {
-                UserDialogs.Instance.HideLoading();
-                UserDialogs.Instance.ShowError("An error occured while refreshing balances "+ex.Message, 3000);
+               DialogHelper.HideLoading();
+               DialogHelper.ShowError("An error occured while refreshing balances "+ex.Message);
             }
-
         }
 
         public static AppData AppData

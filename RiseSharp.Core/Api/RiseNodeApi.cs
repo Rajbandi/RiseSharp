@@ -717,7 +717,7 @@ namespace RiseSharp.Core.Api
         {
             _url.Path = Constants.ApiGetAccountBalance;
             _url.Query = acc.ToQuery();
-            var response = await _client.GetJsonAsync<AccountBalanceResponse>(_url.ToString());
+            var response = await _client.GetJsonAsync<AccountBalanceResponse>(_url.ToString()); 
             ResetPath();
             return response;
         }

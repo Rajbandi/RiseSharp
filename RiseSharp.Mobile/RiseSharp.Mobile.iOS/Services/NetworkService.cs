@@ -10,10 +10,16 @@ namespace RiseSharp.Mobile.iOS.Services
 {
     public class NetworkService : INetworkService
     {
-        public HttpMessageHandler GetClientHandler()
+        public HttpMessageHandler GetMessageHandler()
         {
             return new NativeMessageHandler();
         }
+
+        HttpClientHandler INetworkService.GetClientHandler()
+        {
+            return new NativeMessageHandler();
+        }
+
         public bool IsConnected
         {
             get

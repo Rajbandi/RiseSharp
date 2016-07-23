@@ -39,5 +39,11 @@ namespace RiseSharp.Mobile.Models
         [DataMember(Name="unconfirmedbalance")]
         public double UnconfirmedBalance { get; set; }
 
+
+        public string DisplayName
+        {
+            get { return $"{Name}({Address})"; }
+        }
+
     }
 }

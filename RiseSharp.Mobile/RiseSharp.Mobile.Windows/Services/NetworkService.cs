@@ -9,10 +9,16 @@ namespace RiseSharp.Mobile.Windows.Services
 {
     public class NetworkService : INetworkService
     {
-        public HttpMessageHandler GetClientHandler()
+        public HttpMessageHandler GetMessageHandler()
         {
             return null;
         }
+
+        HttpClientHandler INetworkService.GetClientHandler()
+        {
+            return null;
+        }
+
         public bool IsConnected
         {
             get

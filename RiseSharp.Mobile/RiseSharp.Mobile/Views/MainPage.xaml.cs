@@ -10,9 +10,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Acr.UserDialogs;
-using RiseSharp.Mobile.Services;
+using RiseSharp.Mobile.Helpers;
 using RiseSharp.Mobile.ViewModels;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
@@ -70,12 +68,11 @@ namespace RiseSharp.Mobile.Views
         }
 
     
-
         private void MenuList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var item = e.Item as MenuListItem;
             IsPresented = (Device.Idiom == TargetIdiom.Desktop || Device.Idiom == TargetIdiom.Tablet);
-            if (item != null && item.ViewType != _detailPage.GetType())
+            if (item != null )
             {
                 try
                 {
@@ -86,7 +83,9 @@ namespace RiseSharp.Mobile.Views
                 }
                 catch (Exception ex)
                 {
-                    UserDialogs.Instance.ShowError("Oops. Error while loading details...");
+                    var stackTrace = ex.StackTrace;
+
+                   DialogHelper.ShowError("Oops. Error while loading details...");
                 }
                 // Detail = new NavigationPage(_detailPage);
             }

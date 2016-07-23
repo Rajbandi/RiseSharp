@@ -8,7 +8,6 @@
 // <summary></summary>
 #endregion
 
-using Acr.UserDialogs;
 using RiseSharp.Mobile.Services;
 using Xamarin.Forms;
 
@@ -18,11 +17,26 @@ namespace RiseSharp.Mobile.Helpers
     {
         public static void ShowMessage(string message)
         {
-                UserDialogs.Instance.Alert(message, "Message", "Ok");
+            var dialogService = DependencyService.Get<IDialogService>();
+            dialogService.ShowMessage(message);
         }
         public static void ShowError(string message)
         {
-                UserDialogs.Instance.ShowError(message);
+            var dialogService = DependencyService.Get<IDialogService>();
+            dialogService.ShowError(message);
         }
+
+        public static void ShowLoading(string message)
+        {
+            var dialogService = DependencyService.Get<IDialogService>();
+            dialogService.ShowLoading(message);
+        }
+
+        public static void HideLoading()
+        {
+            var dialogService = DependencyService.Get<IDialogService>();
+            dialogService.HideLoading();
+        }
+
     }
 }

@@ -30,7 +30,7 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
             {
                 RefreshAccounts();
             }, () => true);
-            RefreshAccounts();
+            //RefreshAccounts();
             Addresses = DataHelper.AppData.WalletData.Addresses.ToList();
         
 

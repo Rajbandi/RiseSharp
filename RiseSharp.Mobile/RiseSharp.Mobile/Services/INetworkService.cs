@@ -14,7 +14,8 @@ namespace RiseSharp.Mobile.Services
 {
     public interface INetworkService
     {
-        HttpMessageHandler GetClientHandler();
+        HttpMessageHandler GetMessageHandler();
+        HttpClientHandler GetClientHandler();
 
         bool IsConnected { get; }
     }
