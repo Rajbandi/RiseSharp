@@ -40,7 +40,6 @@
     </Compile>
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Controls\CustomScanView.cs" />
-    <Compile Include="Controls\ExtendedPicker.cs" />
     <Compile Include="Controls\SvgImage.cs" />
     <Compile Include="Helpers\DataHelper.cs" />
     <Compile Include="Helpers\DialogHelper.cs" />
