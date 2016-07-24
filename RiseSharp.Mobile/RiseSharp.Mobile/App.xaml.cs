@@ -9,6 +9,7 @@
 #endregion
 
 using Acr.UserDialogs;
+using RiseSharp.Mobile.Common;
 using RiseSharp.Mobile.Helpers;
 using RiseSharp.Mobile.Models;
 using RiseSharp.Mobile.Services;
@@ -32,22 +33,22 @@ namespace RiseSharp.Mobile
 
         public App()
         {
-             InitializeComponent();
+            InitializeComponent();
             RegisterServices();
             SetIoc();
             RegisterViews();
-            RegisterMessages();
+            SubscribeMessages();
             AppData.Settings.IsSecurityEnabled = true;
 
             var networkService = DependencyService.Get<INetworkService>();
             if (!networkService.IsConnected)
             {
                 DialogHelper.ShowError("No internet connection available...");
-              
+
             }
 
             MainPage = GetMainPage();
-          
+
         }
 
         private static void SetIoc()
@@ -57,14 +58,6 @@ namespace RiseSharp.Mobile
             {
                 Resolver.SetResolver(container.GetResolver());
             }
-        }
-
-        private static void RegisterMessages()
-        {
-            MessagingCenter.Subscribe<string>("Message", "Main", (sender) =>
-            {
-                Current.MainPage = (Page) ViewFactory.CreatePage<MainViewModel, MainPage>();
-            });
         }
 
         private static void RegisterServices()
@@ -99,7 +92,26 @@ namespace RiseSharp.Mobile
             ViewFactory.Register<TransactionSendPage, TransactionSendViewModel>();
             ViewFactory.Register<TransactionHistoryPage, TransactionHistoryViewModel>();
             ViewFactory.Register<AddWalletAddressPage, AddWalletAddressViewModel>();
+            ViewFactory.Register<TransactionReceiptAddressPage, TransactionReceiptAddressViewModel>();
+            ViewFactory.Register<TransactionVotePage, TransactionVoteViewModel>();
+            ViewFactory.Register<TransactionDelegatePage, TransactionDelegateViewModel>();
+            ViewFactory.Register<WalletAddressPage, WalletAddressViewModel>();
 
+        }
+
+        private void SubscribeMessages()
+        {
+            MessagingCenter.Subscribe<WalletAddressesViewModel, WalletAddress>(this, Constants.WalletAddress, (sender, address) =>
+            {
+                var walletAddressPage = (Page)ViewFactory.CreatePage(typeof(WalletAddressViewModel));
+                ((WalletAddressViewModel)walletAddressPage.BindingContext).Address = address;
+                sender.Navigation.PushAsync(walletAddressPage);
+            });
+
+            MessagingCenter.Subscribe<string>("Message", "Main", (sender) =>
+            {
+                Current.MainPage = (Page)ViewFactory.CreatePage<MainViewModel, MainPage>();
+            });
         }
 
         public static Page GetMainPage()
@@ -116,7 +128,7 @@ namespace RiseSharp.Mobile
             internal set { DataHelper.AppData = value; }
         }
 
-        
+
         public static Page CreatePage<T>()
         {
             var page = (Page)ViewFactory.CreatePage(typeof(T));
@@ -141,7 +153,7 @@ namespace RiseSharp.Mobile
             // Handle when your app resumes
         }
 
-     
+
 
     }
 }

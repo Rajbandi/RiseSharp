@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:RiseSharp.Mobile.Controls;assembly=RiseSharp.Mobile"
              x:Class="RiseSharp.Mobile.Views.Wallet.WalletAddressesPage" Title="{Binding Title}" >
   <Grid>
-    <ListView x:Name="WalletAddressesList" ItemsSource="{Binding Addresses}" HasUnevenRows="True"  >
+    <controls:CustomListView x:Name="WalletAddressesList" ItemsSource="{Binding Addresses}" HasUnevenRows="True" 
+                             ItemClickCommand="{Binding SelectAddressCommand}" SelectedItem="{Binding SelectedAddress}">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
@@ -24,7 +26,7 @@
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
-    </ListView>
+    </controls:CustomListView>
     <StackLayout>
       <Button Text="Refresh" Command="{Binding RefreshAddressesCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Button>
     </StackLayout>

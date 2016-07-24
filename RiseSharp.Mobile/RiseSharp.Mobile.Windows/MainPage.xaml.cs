@@ -21,6 +21,8 @@ namespace RiseSharp.Mobile.Windows
         {
             this.InitializeComponent();
 
+           
+
             LoadApplication(new RiseSharp.Mobile.App());
         }
     }

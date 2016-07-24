@@ -9,17 +9,15 @@
 #endregion
 
 using System;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Acr.UserDialogs;
+using RiseSharp.Core.Exceptions;
 using RiseSharp.Core.Extensions;
 using RiseSharp.Core.Helpers;
 using RiseSharp.Core.Services;
 using RiseSharp.Mobile.Models;
 using RiseSharp.Mobile.Services;
 using Xamarin.Forms;
-using Xamarin.Android.Net;
 
 namespace RiseSharp.Mobile.Helpers
 {
@@ -61,7 +59,7 @@ namespace RiseSharp.Mobile.Helpers
                         return;
                     }
                     DialogHelper.ShowLoading("Refreshing Balances");
-                    //await Task.Delay(3000);
+                   // await Task.Delay(2000);
                     var handler = networkService.GetMessageHandler();
                     foreach (var address in AppData.WalletData.Addresses)
                     {
@@ -78,6 +76,40 @@ namespace RiseSharp.Mobile.Helpers
             }
         }
 
+        public static async Task<bool> Send(WalletAddress address, string toAddress, double amt)
+        {
+            bool sent = false;
+            try
+            {
+                var networkService = DependencyService.Get<INetworkService>();
+                if (networkService != null)
+                {
+                    if (!networkService.IsConnected)
+                    {
+                        DialogHelper.ShowError("No Internet connection available");
+                        return false;
+                    }
+                    DialogHelper.ShowLoading("Sending ...");
+                    var handler = networkService.GetMessageHandler();
+                    try
+                    {
+                        var service = new AccountService(address.Secret, address.SecondSecret, null, handler);
+                        sent = await service.SendAsync(toAddress, amt);
+                        DialogHelper.HideLoading();
+                    }
+                    catch (AccountException aex)
+                    {
+                        DialogHelper.ShowError("Error: "+aex.Message);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DialogHelper.HideLoading();
+                DialogHelper.ShowError("An error occured while sending " + ex.Message);
+            }
+            return sent;
+        }
         public static AppData AppData
         {
             get

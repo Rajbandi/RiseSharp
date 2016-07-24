@@ -204,7 +204,8 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
 
         private void GenerateAddress()
         {
-            AddressId = CryptoHelper.GetAddress(Secret).IdString;
+            var secret = Secret.ToLower();
+            AddressId = CryptoHelper.GetAddress(secret).IdString;
         }
 
         private void ReadQrSecret()

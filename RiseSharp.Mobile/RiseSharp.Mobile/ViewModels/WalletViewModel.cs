@@ -8,6 +8,8 @@
 // <summary></summary>
 #endregion
 using RiseSharp.Mobile.Common;
+using RiseSharp.Mobile.Helpers;
+using Xamarin.Forms;
 
 namespace RiseSharp.Mobile.ViewModels
 {
@@ -15,7 +17,7 @@ namespace RiseSharp.Mobile.ViewModels
     {
         public WalletViewModel() : base(Constants.Wallet)
         {
-            
+          
         }
     }
 }

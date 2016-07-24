@@ -12,10 +12,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RiseSharp.Mobile.Common;
 using RiseSharp.Mobile.Helpers;
 using RiseSharp.Mobile.Models;
 using RiseSharp.Mobile.ViewModels.Wallet;
 using Xamarin.Forms;
+using XLabs.Forms.Mvvm;
 
 namespace RiseSharp.Mobile.Views.Wallet
 {
@@ -24,6 +26,14 @@ namespace RiseSharp.Mobile.Views.Wallet
         public TransactionSendPage()
         {
             InitializeComponent();
+            MessagingCenter.Subscribe(Constants.TransactionSend, Constants.TransactionReceiptAddress, (sender) =>
+            {
+                var receiptPage = (Page)ViewFactory.CreatePage(typeof(TransactionReceiptAddressViewModel));
+                sender.Navigation.PushAsync(receiptPage);
+
+            }, this);
+
+         
         }
 
         private void Picker_OnSelectedIndexChanged(object sender, EventArgs e)
@@ -31,10 +41,10 @@ namespace RiseSharp.Mobile.Views.Wallet
             var viewModel = (TransactionSendViewModel) BindingContext;
             if (viewModel != null)
             {
-                var index = SenderAddressList.SelectedIndex;
+             //   var index = SenderAddressList.SelectedIndex;
 
-                var address = DataHelper.AppData.WalletData.Addresses[index];
-                viewModel.SendAddress = address;
+               // var address = DataHelper.AppData.WalletData.Addresses[index];
+                //viewModel.Address = address;
             }
         }
     }

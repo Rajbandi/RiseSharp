@@ -1896,9 +1896,6 @@ namespace RiseSharp.Mobile.Droid
 			global::XLabs.Forms.Droid.Resource.Styleable.ViewStubCompat_android_layout = global::RiseSharp.Mobile.Droid.Resource.Styleable.ViewStubCompat_android_layout;
 			global::XLabs.Platform.Resource.String.ApplicationName = global::RiseSharp.Mobile.Droid.Resource.String.ApplicationName;
 			global::XLabs.Platform.Resource.String.Hello = global::RiseSharp.Mobile.Droid.Resource.String.Hello;
-			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::RiseSharp.Mobile.Droid.Resource.Layout.zxingscanneractivitylayout;
-			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscannerfragmentlayout = global::RiseSharp.Mobile.Droid.Resource.Layout.zxingscannerfragmentlayout;
-			global::ZXing.Net.Mobile.Forms.Android.Resource.String.library_name = global::RiseSharp.Mobile.Droid.Resource.String.library_name;
 			global::ZXing.Mobile.Resource.Id.contentFrame = global::RiseSharp.Mobile.Droid.Resource.Id.contentFrame;
 			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::RiseSharp.Mobile.Droid.Resource.Layout.zxingscanneractivitylayout;
 			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::RiseSharp.Mobile.Droid.Resource.Layout.zxingscannerfragmentlayout;
@@ -4983,11 +4980,11 @@ namespace RiseSharp.Mobile.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f080028
-			public const int ApplicationName = 2131230760;
-			
 			// aapt resource value: 0x7f080027
-			public const int Hello = 2131230759;
+			public const int ApplicationName = 2131230759;
+			
+			// aapt resource value: 0x7f080026
+			public const int Hello = 2131230758;
 			
 			// aapt resource value: 0x7f08000f
 			public const int abc_action_bar_home_description = 2131230735;
@@ -5064,8 +5061,8 @@ namespace RiseSharp.Mobile.Droid
 			// aapt resource value: 0x7f08002a
 			public const int invalid_date = 2131230762;
 			
-			// aapt resource value: 0x7f080026
-			public const int library_name = 2131230758;
+			// aapt resource value: 0x7f080028
+			public const int library_name = 2131230760;
 			
 			// aapt resource value: 0x7f08002b
 			public const int month_name_format = 2131230763;

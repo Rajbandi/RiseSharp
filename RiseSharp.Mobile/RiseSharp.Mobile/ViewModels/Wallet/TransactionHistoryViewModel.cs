@@ -8,14 +8,28 @@
 // <summary></summary>
 #endregion
 using RiseSharp.Mobile.Common;
+using RiseSharp.Mobile.Models;
 
 namespace RiseSharp.Mobile.ViewModels.Wallet
 {
     public class TransactionHistoryViewModel : DetailViewModel
     {
+        private WalletAddress _address;
+
         public TransactionHistoryViewModel() : base(Constants.TransactionHistory)
         {
             
+        }
+        public WalletAddress Address
+        {
+            get
+            {
+                return _address;
+            }
+            set
+            {
+                SetProperty(ref _address, value);
+            }
         }
     }
 }

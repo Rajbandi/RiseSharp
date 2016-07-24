@@ -23,9 +23,15 @@ namespace RiseSharp.Mobile.Common
         public const string About = "About";
 
         public const string WalletAddresses = "Addresses";
+        public const string WalletAddress = "Address";
         public const string TransactionSend = "Send";
         public const string TransactionHistory = "History";
         public const string AddWalletAddress = "Add Address";
+        public const string TransactionVote = "Vote";
+        public const string TransactionDelegate = "Delegate";
+        public const string TransactionReceiptAddress = "Receiptient Address";
+
+        public const string Refresh = "Refresh";
 
     }
 }

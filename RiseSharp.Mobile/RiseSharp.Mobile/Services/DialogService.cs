@@ -31,7 +31,7 @@ namespace RiseSharp.Mobile.Services
 
         public void ShowError(string error)
         {
-            UserDialogs.Instance.ShowError(error);
+            UserDialogs.Instance.ShowError(error, 3000);
         }
     }
 }

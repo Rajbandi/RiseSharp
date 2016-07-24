@@ -192,20 +192,17 @@
       <HintPath>..\..\packages\XLabs.Serialization.2.2.0-pre05\lib\portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac\XLabs.Serialization.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ZXing.Net.Mobile.Core">
-      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.0-beta1\lib\MonoAndroid403\ZXing.Net.Mobile.Core.dll</HintPath>
+    <Reference Include="ZXing.Net.Mobile.Core, Version=2.1.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.13\lib\MonoAndroid403\ZXing.Net.Mobile.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ZXing.Net.Mobile.Forms">
-      <HintPath>..\..\packages\ZXing.Net.Mobile.Forms.2.1.0-beta1\lib\MonoAndroid403\ZXing.Net.Mobile.Forms.dll</HintPath>
+    <Reference Include="zxing.portable, Version=2.1.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.13\lib\MonoAndroid403\zxing.portable.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ZXing.Net.Mobile.Forms.Android">
-      <HintPath>..\..\packages\ZXing.Net.Mobile.Forms.2.1.0-beta1\lib\MonoAndroid403\ZXing.Net.Mobile.Forms.Android.dll</HintPath>
-    </Reference>
-    <Reference Include="zxing.portable">
-      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.0-beta1\lib\MonoAndroid403\zxing.portable.dll</HintPath>
-    </Reference>
-    <Reference Include="ZXingNetMobile">
-      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.0-beta1\lib\MonoAndroid403\ZXingNetMobile.dll</HintPath>
+    <Reference Include="ZXingNetMobile, Version=2.1.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.13\lib\MonoAndroid403\ZXingNetMobile.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>

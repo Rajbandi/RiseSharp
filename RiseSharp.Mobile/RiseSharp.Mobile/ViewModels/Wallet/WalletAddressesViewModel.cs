@@ -23,6 +23,7 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
     public class WalletAddressesViewModel : DetailViewModel
     {
         private IEnumerable<WalletAddress> _addresses;
+        private WalletAddress _selectedAddress;
 
         public WalletAddressesViewModel() : base(Constants.WalletAddresses)
         {
@@ -30,10 +31,14 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
             {
                 RefreshAccounts();
             }, () => true);
+
+            SelectAddressCommand = new RelayCommand(() =>
+            {
+                SelectAddress();
+            }, () => true);
+
             //RefreshAccounts();
             Addresses = DataHelper.AppData.WalletData.Addresses.ToList();
-        
-
         }
 
         private async void RefreshAccounts()
@@ -51,6 +56,24 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
             }
         }
 
+        public WalletAddress SelectedAddress
+        {
+            get
+            {
+                return _selectedAddress;
+            }
+            set
+            {
+                SetProperty(ref _selectedAddress, value);
+            }
+        }
+
+        public void SelectAddress()
+        {
+            MessagingCenter.Send<WalletAddressesViewModel, WalletAddress>(this, Constants.WalletAddress, _selectedAddress);
+        }
+
         public RelayCommand RefreshAddressesCommand { get; protected set; }
+        public RelayCommand SelectAddressCommand { get; set; }
     }
 }

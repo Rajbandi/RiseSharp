@@ -27,7 +27,8 @@ namespace RiseSharp.Mobile.WinPhone
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
-
+            // Force the renderer assembly to load
+            
             LoadApplication(new RiseSharp.Mobile.App());
         }
 

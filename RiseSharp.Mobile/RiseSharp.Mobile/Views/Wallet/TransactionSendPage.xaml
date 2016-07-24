@@ -4,44 +4,40 @@
              xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
              xmlns:controls1="clr-namespace:RiseSharp.Mobile.Controls;assembly=RiseSharp.Mobile"
              x:Class="RiseSharp.Mobile.Views.Wallet.TransactionSendPage" Title="{Binding Title}">
-<ScrollView>
-  <Grid Padding="10">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-    </Grid.RowDefinitions>
+  <ScrollView>
+    <Grid Padding="10">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+      </Grid.RowDefinitions>
 
-    <StackLayout Grid.Row="0"  HorizontalOptions="Fill" >
-      <Label Text="From Address"></Label>
-      <controls:ExtendedPicker x:Name="SenderAddressList" ItemsSource="{Binding Addresses}"  
-                               SelectedItem ="{Binding SendAddress}" 
-                               DisplayProperty="DisplayName" 
-                              SelectedIndexChanged="Picker_OnSelectedIndexChanged"
-      > 
-      </controls:ExtendedPicker>
-    </StackLayout>
+      <StackLayout Grid.Row="0"  HorizontalOptions="Fill" >
+        <Label Text="Address"></Label>
+        <Entry Text="{Binding FromAddress}" IsEnabled="False"></Entry>
+      </StackLayout>
 
-    <StackLayout Grid.Row="1"  HorizontalOptions="Fill" >
-      <Label Text="Balance"></Label>
-      <Entry Text="{Binding Balance}" IsEnabled="False"></Entry>
-    </StackLayout>
-    <StackLayout Grid.Row="2">
-      <Label Text="Receipient Address"></Label>
-      <Entry Text="" ></Entry>
-    </StackLayout>
-    <StackLayout Grid.Row="3" HorizontalOptions="Fill">
-      <Label Text="Amount"></Label>
-      <Entry Placeholder="Enter Amount" ></Entry>
-    </StackLayout>
-    <StackLayout Grid.Row="4" Orientation="Horizontal" Padding="20" HorizontalOptions="Center">
-      <Button Text="Clear"></Button>
-      <Button Text="Send" Command="{Binding SendCommand}"></Button>
-    </StackLayout>
-    
-  </Grid>
-</ScrollView>
+      <StackLayout Grid.Row="1"  HorizontalOptions="Fill" >
+        <Label Text="Balance"></Label>
+        <Entry Text="{Binding Balance}" IsEnabled="False"></Entry>
+      </StackLayout>
+      <StackLayout Grid.Row="2">
+        <Label Text="Receipient Address" ></Label>
+        <Entry Text="{Binding ToAddress}" IsEnabled="False" >
+        </Entry>
+      </StackLayout>
+      <StackLayout Grid.Row="3" HorizontalOptions="Fill">
+        <Label Text="Amount"></Label>
+        <Entry Placeholder="Enter Amount" Text="{Binding Amount}" ></Entry>
+      </StackLayout>
+      <StackLayout Grid.Row="4" Orientation="Horizontal" Padding="20" HorizontalOptions="Center">
+        <Button Text="Clear" Command="{Binding ClearCommand}"></Button>
+        <Button Text="Send" Command="{Binding SendCommand}"></Button>
+      </StackLayout>
+
+    </Grid>
+  </ScrollView>
 </ContentPage>

@@ -1,10 +1,10 @@
 ﻿#region copyright
-// <copyright file="TransactionSenderAddress.xaml.cs" >
+// <copyright file="TransactionVotePage.xaml.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
 // Licensed under MIT
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>23/7/2016</date>
+// <date>24/7/2016</date>
 // <summary></summary>
 #endregion
 using System;
@@ -17,9 +17,9 @@ using Xamarin.Forms;
 
 namespace RiseSharp.Mobile.Views.Wallet
 {
-    public partial class TransactionSenderAddress : ContentPage
+    public partial class TransactionVotePage : ContentPage
     {
-        public TransactionSenderAddress()
+        public TransactionVotePage()
         {
             InitializeComponent();
         }

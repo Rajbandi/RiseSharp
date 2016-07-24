@@ -23,7 +23,7 @@ namespace RiseSharp.Mobile.Droid
             
             base.OnCreate(bundle);
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            ZXing.Net.Mobile.Forms.Android.Platform.Init();
+            //ZXing.Net.Mobile.Forms.Android.Platform.Init();
             if (!Resolver.IsSet) SetIoc();
             UserDialogs.Init(this);
             LoadApplication(new App());

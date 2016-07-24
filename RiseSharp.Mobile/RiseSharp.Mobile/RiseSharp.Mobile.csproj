@@ -40,6 +40,8 @@
     </Compile>
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Controls\CustomScanView.cs" />
+    <Compile Include="Controls\CustomListView.cs" />
+    <Compile Include="Controls\CustomTabbedPage.cs" />
     <Compile Include="Controls\SvgImage.cs" />
     <Compile Include="Helpers\DataHelper.cs" />
     <Compile Include="Helpers\DialogHelper.cs" />
@@ -69,9 +71,13 @@
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\WalletViewModel.cs" />
     <Compile Include="ViewModels\Wallet\AddWalletAddressViewModel.cs" />
+    <Compile Include="ViewModels\Wallet\TransactionDelegateViewModel.cs" />
     <Compile Include="ViewModels\Wallet\TransactionHistoryViewModel.cs" />
+    <Compile Include="ViewModels\Wallet\TransactionReceiptAddressViewModel.cs" />
     <Compile Include="ViewModels\Wallet\TransactionSendViewModel.cs" />
+    <Compile Include="ViewModels\Wallet\TransactionVoteViewModel.cs" />
     <Compile Include="ViewModels\Wallet\WalletAddressesViewModel.cs" />
+    <Compile Include="ViewModels\Wallet\WalletAddressViewModel.cs" />
     <Compile Include="Views\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
@@ -104,11 +110,14 @@
     <Compile Include="Views\Wallet\AddWalletAddressPage.xaml.cs">
       <DependentUpon>AddWalletAddressPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Wallet\TransactionDelegatePage.xaml.cs">
+      <DependentUpon>TransactionDelegatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Wallet\TransactionReceiptAddressPage.xaml.cs">
       <DependentUpon>TransactionReceiptAddressPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Wallet\TransactionSenderAddressPage.xaml.cs">
-      <DependentUpon>TransactionSenderAddressPage.xaml</DependentUpon>
+    <Compile Include="Views\Wallet\TransactionVotePage.xaml.cs">
+      <DependentUpon>TransactionVotePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Wallet\WalletAddressesPage.xaml.cs">
       <DependentUpon>WalletAddressesPage.xaml</DependentUpon>
@@ -118,6 +127,9 @@
     </Compile>
     <Compile Include="Views\Wallet\TransactionHistoryPage.xaml.cs">
       <DependentUpon>TransactionHistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Wallet\WalletAddressPage.xaml.cs">
+      <DependentUpon>WalletAddressPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -209,14 +221,20 @@
       <HintPath>..\..\packages\XLabs.Serialization.2.2.0-pre05\lib\portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac\XLabs.Serialization.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ZXing.Net.Mobile.Core">
-      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.0-beta1\lib\portable-net45+netcore45+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10\ZXing.Net.Mobile.Core.dll</HintPath>
+    <Reference Include="ZXing.Net.Mobile.Core, Version=2.1.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.13\lib\portable-net45+netcore45+wpa81+wp8\ZXing.Net.Mobile.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ZXing.Net.Mobile.Forms">
       <HintPath>..\..\packages\ZXing.Net.Mobile.Forms.2.1.0-beta1\lib\portable-net45+netcore45+wp8+UAP10.0+MonoAndroid403+MonoTouch10+Xamarin.iOS10\ZXing.Net.Mobile.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="zxing.portable">
-      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.0-beta1\lib\portable-net45+netcore45+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10\zxing.portable.dll</HintPath>
+    <Reference Include="zxing.portable, Version=2.1.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.13\lib\portable-net45+netcore45+wpa81+wp8\zxing.portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ZXingNetMobile, Version=2.1.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.13\lib\portable-net45+netcore45+wpa81+wp8\ZXingNetMobile.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -306,13 +324,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Wallet\TransactionSenderAddressPage.xaml">
+    <EmbeddedResource Include="Views\Wallet\TransactionReceiptAddressPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Wallet\TransactionReceiptAddressPage.xaml">
+    <EmbeddedResource Include="Views\Wallet\TransactionVotePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Wallet\TransactionDelegatePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Wallet\WalletAddressPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

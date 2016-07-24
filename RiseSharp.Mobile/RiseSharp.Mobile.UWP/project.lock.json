@@ -1960,7 +1960,7 @@
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
         }
       },
-      "ZXing.Net.Mobile/2.1.0-beta1": {
+      "ZXing.Net.Mobile/2.1.13": {
         "compile": {
           "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
           "lib/UAP10/ZXingNetMobile.dll": {},
@@ -3784,7 +3784,7 @@
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
         }
       },
-      "ZXing.Net.Mobile/2.1.0-beta1": {
+      "ZXing.Net.Mobile/2.1.13": {
         "compile": {
           "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
           "lib/UAP10/ZXingNetMobile.dll": {},
@@ -5572,7 +5572,7 @@
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
         }
       },
-      "ZXing.Net.Mobile/2.1.0-beta1": {
+      "ZXing.Net.Mobile/2.1.13": {
         "compile": {
           "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
           "lib/UAP10/ZXingNetMobile.dll": {},
@@ -7402,7 +7402,7 @@
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
         }
       },
-      "ZXing.Net.Mobile/2.1.0-beta1": {
+      "ZXing.Net.Mobile/2.1.13": {
         "compile": {
           "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
           "lib/UAP10/ZXingNetMobile.dll": {},
@@ -9190,7 +9190,7 @@
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
         }
       },
-      "ZXing.Net.Mobile/2.1.0-beta1": {
+      "ZXing.Net.Mobile/2.1.13": {
         "compile": {
           "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
           "lib/UAP10/ZXingNetMobile.dll": {},
@@ -11020,7 +11020,7 @@
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
         }
       },
-      "ZXing.Net.Mobile/2.1.0-beta1": {
+      "ZXing.Net.Mobile/2.1.13": {
         "compile": {
           "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
           "lib/UAP10/ZXingNetMobile.dll": {},
@@ -12808,7 +12808,7 @@
           "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll": {}
         }
       },
-      "ZXing.Net.Mobile/2.1.0-beta1": {
+      "ZXing.Net.Mobile/2.1.13": {
         "compile": {
           "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
           "lib/UAP10/ZXingNetMobile.dll": {},
@@ -16436,11 +16436,11 @@
         "lib/portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac/XLabs.Serialization.dll"
       ]
     },
-    "ZXing.Net.Mobile/2.1.0-beta1": {
-      "sha512": "FXEZ7n+UHExhrfjM3F/UDH5IEScT2kJ37YSoXWMrpKxniOxORXPKf6ZtViIz9i5d6fiYbYZ2jwlu2XTzFojbGg==",
+    "ZXing.Net.Mobile/2.1.13": {
+      "sha512": "ncleA/l1KBrbw+JyGKhQbViEPfNsr4bKMcqjIGvjovl3Qe7zeGp3aYeK+vBPdBjFxZTvx51XvkvhlCMMk9AspQ==",
       "type": "package",
       "files": [
-        "ZXing.Net.Mobile.2.1.0-beta1.nupkg.sha512",
+        "ZXing.Net.Mobile.2.1.13.nupkg.sha512",
         "ZXing.Net.Mobile.nuspec",
         "lib/MonoAndroid403/ZXing.Net.Mobile.Core.dll",
         "lib/MonoAndroid403/ZXingNetMobile.dll",
@@ -16453,9 +16453,9 @@
         "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll",
         "lib/Xamarin.iOS10/ZXingNetMobile.dll",
         "lib/Xamarin.iOS10/zxing.portable.dll",
-        "lib/portable-net45+netcore45+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10/ZXing.Net.Mobile.Core.dll",
-        "lib/portable-net45+netcore45+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10/ZXingNetMobile.dll",
-        "lib/portable-net45+netcore45+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10/zxing.portable.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8/ZXing.Net.Mobile.Core.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8/ZXingNetMobile.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8/zxing.portable.dll",
         "lib/wp8/ZXing.Net.Mobile.Core.dll",
         "lib/wp8/ZXingNetMobile.dll",
         "lib/wp8/zxing.portable.dll"
@@ -16471,7 +16471,7 @@
       "XLabs.Forms >= 2.2.0-pre05",
       "XLabs.Platform >= 2.2.0-pre05",
       "Xamarin.Forms >= 2.3.0.107",
-      "ZXing.Net.Mobile >= 2.1.0-beta1"
+      "ZXing.Net.Mobile >= 2.1.13"
     ],
     "UAP,Version=v10.0": []
   }
