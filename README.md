@@ -1,5 +1,5 @@
 # RiseSharp
-(c) Raj Bandi 2016, MIT Licence
+(c) Raj Bandi 2016, Apache 2.0 Licence
 
 App Veyor: [![Build status](https://ci.appveyor.com/api/projects/status/ceylrldf45l3qbi9?svg=true)](https://ci.appveyor.com/project/Rajbandi/risesharp)
 
