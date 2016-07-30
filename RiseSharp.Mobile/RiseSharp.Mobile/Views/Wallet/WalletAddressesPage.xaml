@@ -1,20 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage x:Name="root" xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:RiseSharp.Mobile.Controls;assembly=RiseSharp.Mobile"
-             x:Class="RiseSharp.Mobile.Views.Wallet.WalletAddressesPage" Title="{Binding Title}" >
+             x:Class="RiseSharp.Mobile.Views.Wallet.WalletAddressesPage" Title="{Binding Title}" 
+  >
   <Grid>
     <controls:CustomListView x:Name="WalletAddressesList" ItemsSource="{Binding Addresses}" HasUnevenRows="True" 
-                             ItemClickCommand="{Binding SelectAddressCommand}" SelectedItem="{Binding SelectedAddress}">
+                             ItemClickCommand="{Binding SelectAddressCommand}"  SelectedItem="{Binding SelectedAddress}">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
             <ViewCell.ContextActions>
-              <MenuItem 
-                 Text="Send" />
               <MenuItem
-              Text="Edit" />
-              <MenuItem Text="Delete" IsDestructive="True" ></MenuItem>
+              Text="Edit"  Command="{Binding BindingContext.EditAddressCommand, Source={x:Reference root} }" 
+              CommandParameter="{Binding .}"/>
+              <MenuItem Text="Delete" IsDestructive="True"  Command="{Binding BindingContext.DeleteAddressCommand, Source={x:Reference root} }"
+              CommandParameter="{Binding .}"></MenuItem>
             </ViewCell.ContextActions>
             <Grid VerticalOptions="FillAndExpand" Padding="10"  >
               <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" >
@@ -27,8 +28,9 @@
         </DataTemplate>
       </ListView.ItemTemplate>
     </controls:CustomListView>
-    <StackLayout>
+    <StackLayout Orientation="Horizontal">
       <Button Text="Refresh" Command="{Binding RefreshAddressesCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Button>
+      <Button Text="Add" Command="{Binding AddAddressCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Button>
     </StackLayout>
   </Grid>
 </ContentPage>

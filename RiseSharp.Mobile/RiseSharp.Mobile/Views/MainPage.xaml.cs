@@ -1,10 +1,10 @@
 ﻿#region copyright
-// <copyright file="MainPage.xaml.cs" >
+// <copyright file="mainpage.xaml.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
-// Licensed under MIT
+// Licensed under Apache 2.0
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>17/7/2016</date>
+// <date>28/7/2016</date>
 // <summary></summary>
 #endregion
 using System;
@@ -59,6 +59,12 @@ namespace RiseSharp.Mobile.Views
 
                         }
                     }
+                    else
+                    {
+                        var menuList = (IEnumerable<MenuListItem>)_menuPage.MenuList.ItemsSource;
+                        _menuPage.MenuList.SelectedItem = menuList.First();
+
+                    }
                 }
             };
             //nav.Pushed += (sender, args) =>
@@ -78,8 +84,12 @@ namespace RiseSharp.Mobile.Views
                 {
                     _detailPage = (Page)ViewFactory.CreatePage(item.ViewModelType);
                     var grid = _detailPage.FindByName<Grid>("MainGrid");
-                  
-                    Detail.Navigation.PushAsync(_detailPage);
+                    if (_detailPage is DashboardPage)
+                    {
+                        Detail = new NavigationPage(_detailPage); 
+                    }
+                    else
+                        Detail.Navigation.PushAsync(_detailPage);
                 }
                 catch (Exception ex)
                 {

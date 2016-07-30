@@ -1,5 +1,5 @@
 ﻿#region copyright
-// <copyright file="IDialogService.cs" >
+// <copyright file="RecipientAddressesPage.xaml.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
 // Licensed under Apache 2.0
 // </copyright>
@@ -13,18 +13,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RiseSharp.Mobile.Services
+using Xamarin.Forms;
+
+namespace RiseSharp.Mobile.Views.Wallet
 {
-    public interface IDialogService
+    public partial class ReceipientAddressesPage : ContentPage
     {
-        void ShowLoading(string message);
-
-        void HideLoading();
-
-        void ShowMessage(string message);
-
-        void ShowError(string error);
-
-        Task<bool> Confirm(string message, string Ok="Ok");
+        public ReceipientAddressesPage()
+        {
+            InitializeComponent();
+        }
     }
 }

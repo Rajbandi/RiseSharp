@@ -1,5 +1,5 @@
 ﻿#region copyright
-// <copyright file="IDetailView.cs" >
+// <copyright file="AddressMode.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
 // Licensed under Apache 2.0
 // </copyright>
@@ -7,15 +7,11 @@
 // <date>28/7/2016</date>
 // <summary></summary>
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RiseSharp.Mobile.Views
+namespace RiseSharp.Mobile.Models
 {
-    public interface IDetailView
+    public enum AddressMode
     {
+        Add,
+        Edit
     }
 }

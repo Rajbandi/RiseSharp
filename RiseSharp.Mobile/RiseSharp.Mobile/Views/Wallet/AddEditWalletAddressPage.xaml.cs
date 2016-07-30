@@ -1,10 +1,10 @@
 ﻿#region copyright
-// <copyright file="AddWalletAddressPage.xaml.cs" >
+// <copyright file="AddEditWalletAddressPage.xaml.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
-// Licensed under MIT
+// Licensed under Apache 2.0
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>17/7/2016</date>
+// <date>28/7/2016</date>
 // <summary></summary>
 #endregion
 using RiseSharp.Mobile.Helpers;
@@ -13,9 +13,9 @@ using ZXing.Net.Mobile.Forms;
 
 namespace RiseSharp.Mobile.Views.Wallet
 {
-    public partial class AddWalletAddressPage 
+    public partial class AddEditWalletAddressPage 
     {
-        public AddWalletAddressPage()
+        public AddEditWalletAddressPage()
         {
             InitializeComponent();
             MessagingCenter.Subscribe<string>("QRCode", "Read", (sender) =>

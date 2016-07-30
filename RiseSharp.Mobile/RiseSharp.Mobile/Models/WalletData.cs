@@ -1,10 +1,10 @@
 ﻿#region copyright
 // <copyright file="WalletData.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
-// Licensed under MIT
+// Licensed under Apache 2.0
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>17/7/2016</date>
+// <date>28/7/2016</date>
 // <summary></summary>
 #endregion
 using System;
@@ -22,6 +22,7 @@ namespace RiseSharp.Mobile.Models
         public WalletData()
         {
             Addresses = new List<WalletAddress>();
+            Recipients = new List<WalletAddress>();
         }
 
         [DataMember(Name = "bittrexapikey")]
@@ -29,6 +30,9 @@ namespace RiseSharp.Mobile.Models
 
         [DataMember(Name = "addresses")]
         public IList<WalletAddress> Addresses { get; set; }
+
+        [DataMember(Name = "recipients")]
+        public IList<WalletAddress> Recipients { get; set; }
 
         public override string ToString()
         {

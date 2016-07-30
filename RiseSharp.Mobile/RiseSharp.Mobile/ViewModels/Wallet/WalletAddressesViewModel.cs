@@ -1,17 +1,15 @@
 ﻿#region copyright
 // <copyright file="WalletAddressesViewModel.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
-// Licensed under MIT
+// Licensed under Apache 2.0
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>17/7/2016</date>
+// <date>28/7/2016</date>
 // <summary></summary>
 #endregion
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
-using Acr.UserDialogs;
 using RiseSharp.Mobile.Common;
 using RiseSharp.Mobile.Helpers;
 using RiseSharp.Mobile.Models;
@@ -24,26 +22,48 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
     {
         private IEnumerable<WalletAddress> _addresses;
         private WalletAddress _selectedAddress;
-
         public WalletAddressesViewModel() : base(Constants.WalletAddresses)
         {
-            RefreshAddressesCommand = new RelayCommand(() =>
+            RefreshAddressesCommand = new Command(() =>
             {
-                RefreshAccounts();
+               RefreshBalances();
             }, () => true);
 
-            SelectAddressCommand = new RelayCommand(() =>
+            SelectAddressCommand = new Command<WalletAddress>((addr) =>
             {
-                SelectAddress();
-            }, () => true);
+               SelectAddress(addr);
+            }, (addr) => true);
 
-            //RefreshAccounts();
+            AddAddressCommand = new Command(() =>
+            {
+               AddAddress();
+
+            }, ()=> true);
+
+            DeleteAddressCommand = new Command<WalletAddress>((addr) =>
+            {
+               DeleteAddress(addr);   
+            }, (addr)=> true);
+
+            EditAddressCommand = new Command<WalletAddress>(addr =>
+            {
+                EditAddress(addr);
+            }, (addr)=>true);
+
             Addresses = DataHelper.AppData.WalletData.Addresses.ToList();
+            RefreshBalances();
+           
         }
 
-        private async void RefreshAccounts()
+        private async void RefreshBalances()
         {
+            
             await DataHelper.RefreshAccounts();
+            RefreshAccounts();
+        }
+
+        private void RefreshAccounts()
+        {
             Addresses = DataHelper.AppData.WalletData.Addresses.ToList();
         }
 
@@ -68,12 +88,44 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
             }
         }
 
-        public void SelectAddress()
+        public void SelectAddress(WalletAddress address)
         {
-            MessagingCenter.Send<WalletAddressesViewModel, WalletAddress>(this, Constants.WalletAddress, _selectedAddress);
+            MessagingCenter.Send(this, Constants.WalletAddress, address);
         }
 
-        public RelayCommand RefreshAddressesCommand { get; protected set; }
-        public RelayCommand SelectAddressCommand { get; set; }
+        public void AddAddress()
+        {
+            MessagingCenter.Send(this, Constants.Add);
+        }
+
+        public void EditAddress(WalletAddress address)
+        {
+            MessagingCenter.Send(this, Constants.Edit, address);
+        }
+
+        public async void DeleteAddress(WalletAddress address)
+        {
+            var result = await DialogHelper.Confirm("Are you sure", "Delete");
+            if (result)
+            {
+                var deleted = DataHelper.AppData.WalletData.Addresses.Remove(address);
+                if (deleted)
+                {
+                    DataHelper.AppData.Save();
+                    DialogHelper.ShowMessage("Deleted Successfully");
+                    RefreshAccounts();
+                }
+                else
+                {
+                    DialogHelper.ShowError("Delete Unsuccessful");
+                }
+            }
+        }
+
+        public Command RefreshAddressesCommand { get; protected set; }
+        public Command SelectAddressCommand { get; protected set; }
+        public Command AddAddressCommand { get; protected set; }
+        public Command EditAddressCommand { get; protected set; }
+        public Command DeleteAddressCommand { get; protected set; }
     }
 }

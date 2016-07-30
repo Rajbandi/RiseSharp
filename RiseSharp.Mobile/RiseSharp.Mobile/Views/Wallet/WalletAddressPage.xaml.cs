@@ -1,10 +1,10 @@
 ﻿#region copyright
 // <copyright file="WalletAddressPage.xaml.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
-// Licensed under MIT
+// Licensed under Apache 2.0
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>24/7/2016</date>
+// <date>28/7/2016</date>
 // <summary></summary>
 #endregion
 using System;
@@ -62,7 +62,6 @@ namespace RiseSharp.Mobile.Views.Wallet
                 ((TransactionHistoryViewModel)Children[3].BindingContext).Address = addressViewModel.Address;
                 addressViewModel.TabTitle = Children[0].Title;
             }
-
         }
     }
 

@@ -1,10 +1,10 @@
 ﻿#region copyright
 // <copyright file="AppData.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
-// Licensed under MIT
+// Licensed under Apache 2.0
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>17/7/2016</date>
+// <date>28/7/2016</date>
 // <summary></summary>
 #endregion
 using System.Collections.Generic;
@@ -101,19 +101,22 @@ namespace RiseSharp.Mobile.Models
         public string CheckValidAddress(WalletAddress address)
         {
             var error = "";
-            var name = WalletData.Addresses.FirstOrDefault(x => x.Name == address.Name);
+            var name = WalletData.Addresses.FirstOrDefault(x => x.Name == address.Name
+            && (!address.Id.HasValue || x.Id != address.Id));
             if (name != null)
             {
-                error = "Address already exist with same name";
+                error = "Address exist with same name...";
             }
             else
             {
-                var addr = WalletData.Addresses.FirstOrDefault(x => x.Address == address.Address);
+                var addr = WalletData.Addresses.FirstOrDefault(x => x.Address == address.Address
+                && (!address.Id.HasValue || x.Id != address.Id));
                 if (addr != null)
                 {
-                    error = "Address already exist with same id";
+                    error = "Address exist with same address id";
                 }
             }
+
             return error;
         }
     }

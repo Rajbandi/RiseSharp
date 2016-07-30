@@ -2,6 +2,7 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
-             x:Class="RiseSharp.Mobile.Views.WalletPage" Title="{Binding Title}" >
+             x:Class="RiseSharp.Mobile.Views.WalletPage" Title="{Binding Title}"
+            Appearing="WalletPage_OnAppearing" CurrentPageChanged="WalletPage_OnCurrentPageChanged">
  
 </TabbedPage>

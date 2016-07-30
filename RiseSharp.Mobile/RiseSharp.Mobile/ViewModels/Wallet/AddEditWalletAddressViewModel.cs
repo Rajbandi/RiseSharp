@@ -1,69 +1,70 @@
 ﻿#region copyright
-// <copyright file="AddWalletAddressViewModel.cs" >
+// <copyright file="addeditwalletaddressviewmodel.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
-// Licensed under MIT
+// Licensed under Apache 2.0
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>17/7/2016</date>
+// <date>28/7/2016</date>
 // <summary></summary>
 #endregion
 using System;
-using RiseSharp.Core.Common;
+using System.Linq;
 using RiseSharp.Core.Helpers;
 using RiseSharp.Mobile.Helpers;
 using RiseSharp.Mobile.Models;
 using RiseSharp.Mobile.Services;
 using Xamarin.Forms;
 using XLabs;
-using XLabs.Ioc;
-using XLabs.Platform.Services;
 using Constants = RiseSharp.Mobile.Common.Constants;
 
 namespace RiseSharp.Mobile.ViewModels.Wallet
 {
-    public class AddWalletAddressViewModel : DetailViewModel
+    public class AddEditWalletAddressViewModel : DetailViewModel
     {
         private string _secret, _secondSecret, _addressId, _name;
+        private bool _isEditable;
+        private AddressMode _addressMode;
+        private int? _id;
 
-        public AddWalletAddressViewModel() : base(Constants.AddWalletAddress)
+        public AddEditWalletAddressViewModel() : base(Constants.AddWalletAddress)
         {
-        
-            FillRandomCommand = new RelayCommand(() =>
+
+            FillRandomCommand = new Command(() =>
             {
                 FillRandom();
 
             }, () => true);
 
-            FillSecondRandomCommand = new RelayCommand(() =>
+            FillSecondRandomCommand = new Command(() =>
             {
                 FillSecondRandom();
 
             }, () => true);
 
-            GenerateCommand = new RelayCommand(() =>
+            GenerateCommand = new Command(() =>
             {
                 GenerateAddress();
 
             }, () => CanGenerate);
 
-            AddAddressCommand = new RelayCommand(() =>
+            SaveAddressCommand = new Command(() =>
             {
-                AddAddress();
+                SaveAddress();
 
-            }, () => CanAdd);
+            }, () => CanSave);
 
-            ClearCommand = new RelayCommand(() =>
+            ClearCommand = new Command(() =>
             {
                 ClearForm();
 
-            }, ()=>CanClear);
+            }, () => CanClear);
 
-            SecretQrCommand = new RelayCommand(() =>
+            SecretQrCommand = new Command(() =>
             {
                 ReadQrSecret();
             });
 
-            SecondSecretQrCommand = new RelayCommand(() =>
+            SecondSecretQrCommand = new Command(() =>
             {
                 ReadQrSecondSecret();
             });
@@ -73,7 +74,7 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
 
         private bool CheckIfValid()
         {
-            return (!string.IsNullOrWhiteSpace(Name) && !string.IsNullOrWhiteSpace(Secret) 
+            return (!string.IsNullOrWhiteSpace(Name) && !string.IsNullOrWhiteSpace(Secret)
                 && !string.IsNullOrWhiteSpace(AddressId));
         }
 
@@ -81,18 +82,71 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
         {
             return (!string.IsNullOrWhiteSpace(Name) || !string.IsNullOrWhiteSpace(Secret)
                 || !string.IsNullOrWhiteSpace(AddressId) || !string.IsNullOrWhiteSpace(SecondSecret));
-
         }
 
         private bool CheckIfValidSecret()
         {
             return !string.IsNullOrWhiteSpace(Secret);
-
         }
 
         #endregion
         #region public properties
 
+        public WalletAddress Address
+        {
+            get
+            {
+                return new WalletAddress
+                {
+                    Id = _id,
+                    Name = Name,
+                    Secret = Secret,
+                    SecondSecret = SecondSecret,
+                    Address = AddressId,
+                };
+            }
+            set
+            {
+                if (value != null)
+                {
+                    Id = value.Id?.ToString();
+                    Name = value.Name;
+                    Secret = value.Secret;
+                    SecondSecret = value.SecondSecret;
+                    AddressId = value.Address;
+                }
+
+                AddressMode = value == null ? AddressMode.Add : AddressMode.Edit;
+                Title = $"{(AddressMode == AddressMode.Add ? "Add" : "Edit")} Wallet Address";
+                IsEditable = AddressMode == AddressMode.Add;
+            }
+        }
+
+        
+        public AddressMode AddressMode
+        {
+            get
+            {
+                return _addressMode;
+            }
+            set { SetProperty(ref _addressMode, value); }
+        }
+
+        public bool IsEditable
+        {
+            get { return _isEditable; }
+            set { SetProperty(ref _isEditable, value); }
+        }
+        public string Id
+        {
+            get { return Convert.ToString(_id); }
+            set
+            {
+                int id;
+                int.TryParse(value, out id);
+                SetProperty(ref _id, id);
+            }
+        }
         public string Secret
         {
             get
@@ -102,7 +156,7 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
             set
             {
                 this.SetProperty(ref _secret, value);
-                CanAdd = CheckIfValid();
+                CanSave = CheckIfValid();
                 CanClear = CheckIfValidForClear();
                 CanGenerate = CheckIfValidSecret();
             }
@@ -130,10 +184,11 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
             set
             {
                 this.SetProperty(ref _addressId, value);
-                CanAdd = CheckIfValid();
+                CanSave = CheckIfValid();
                 CanClear = CheckIfValidForClear();
             }
         }
+
 
         public string Name
         {
@@ -144,24 +199,24 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
             set
             {
                 this.SetProperty(ref _name, value);
-                CanAdd = CheckIfValid();
+                CanSave = CheckIfValid();
                 CanClear = CheckIfValidForClear();
             }
         }
-        
+
         #endregion
 
         #region commands
 
-        private bool _canAdd;
-        public bool CanAdd
+        private bool _canSave;
+        public bool CanSave
         {
-            get { return _canAdd; }
+            get { return _canSave; }
             set
             {
-                _canAdd = value;
-                this.SetProperty(ref _canAdd, value);
-                AddAddressCommand.RaiseCanExecuteChanged();
+                _canSave = value;
+                this.SetProperty(ref _canSave, value);
+                SaveAddressCommand.ChangeCanExecute();
             }
         }
 
@@ -173,7 +228,7 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
             {
                 _canClear = value;
                 this.SetProperty(ref _canClear, value);
-                ClearCommand.RaiseCanExecuteChanged();
+                ClearCommand.ChangeCanExecute();
             }
         }
 
@@ -185,7 +240,7 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
             {
                 _canGenerate = value;
                 this.SetProperty(ref _canGenerate, value);
-                GenerateCommand.RaiseCanExecuteChanged();
+                GenerateCommand.ChangeCanExecute();
             }
         }
 
@@ -211,7 +266,7 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
         private void ReadQrSecret()
         {
             var qrService = DependencyService.Get<IQrService>();
-            MessagingCenter.Send("QRCode","Read");
+            MessagingCenter.Send("QRCode", "Read");
 
         }
 
@@ -224,18 +279,12 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
             SecondSecret = CryptoHelper.GenerateSecret();
         }
 
-        private void AddAddress()
+        private void SaveAddress()
         {
             if (CheckIfValid())
             {
                 var appData = DataHelper.AppData;
-                var address = new WalletAddress
-                {
-                    Name = Name,
-                    Address = AddressId,
-                    Secret = Secret,
-                    SecondSecret = SecondSecret
-                };
+                var address = Address;
                 var error = appData.CheckValidAddress(address);
                 if (!string.IsNullOrWhiteSpace(error))
                 {
@@ -244,33 +293,45 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
                 }
                 try
                 {
-                    var addresses = appData.WalletData.Addresses;
-                    address.Id = addresses.Count + 1;
-                    addresses.Add(address);
-                    appData.Save();
+                    var addrExist =
+                        appData.WalletData.Addresses.FirstOrDefault(
+                            x => x.Id == _id);
+                    if (addrExist != null)
+                    {
+                        addrExist.Name = address.Name;
+                        appData.Save();
 
-                    DialogHelper.ShowMessage("Added address successfully");
+                    }
+                    else
+                    {
+                        var addresses = appData.WalletData.Addresses;
+                        address.Id = addresses.Count + 1;
+                        addresses.Add(address);
+                        appData.Save();
+                    }
+                    DialogHelper.ShowMessage("Adress saved successfully");
                 }
                 catch (Exception ex)
                 {
-                  DialogHelper.ShowError("Some error while adding address");
+                    DialogHelper.ShowError("Some error while saving address");
                 }
             }
+
         }
 
-        public RelayCommand AddAddressCommand { get; protected set; }
+        public Command SaveAddressCommand { get; protected set; }
 
-        public RelayCommand FillRandomCommand { get; protected set; }
+        public Command FillRandomCommand { get; protected set; }
 
-        public RelayCommand GenerateCommand { get; protected set; }
+        public Command GenerateCommand { get; protected set; }
 
-        public RelayCommand SecretQrCommand { get; protected set; }
+        public Command SecretQrCommand { get; protected set; }
 
-        public RelayCommand SecondSecretQrCommand { get; protected set; }
+        public Command SecondSecretQrCommand { get; protected set; }
 
-        public RelayCommand FillSecondRandomCommand { get; protected set; }
+        public Command FillSecondRandomCommand { get; protected set; }
 
-        public RelayCommand ClearCommand { get; protected set; }
+        public Command ClearCommand { get; protected set; }
 
         #endregion commands
 

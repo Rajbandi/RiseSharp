@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RiseSharp.Mobile.Views.Wallet.AddWalletAddressPage"
+             x:Class="RiseSharp.Mobile.Views.Wallet.AddEditWalletAddressPage"
               Title="{Binding Title}">
   <ScrollView>
     <Grid VerticalOptions="Center" HorizontalOptions="Fill" Padding="10">
@@ -27,7 +27,7 @@
       </StackLayout>
       <StackLayout Grid.Row="2" HorizontalOptions="Fill">
         <Label HorizontalOptions="Fill" Text="Secret"></Label>
-        <Entry Placeholder="Enter Secret (12 words)" Text="{Binding Secret}" HorizontalOptions="Fill" ></Entry>
+        <Entry Placeholder="Enter Secret (12 words)" Text="{Binding Secret}" HorizontalOptions="Fill" IsEnabled="{Binding IsEditable}"></Entry>
 
       </StackLayout>
       <StackLayout Grid.Row="3"  HorizontalOptions="EndAndExpand" Orientation="Horizontal" Padding="20">
@@ -38,7 +38,7 @@
 
       <StackLayout Grid.Row="4" HorizontalOptions="Fill">
         <Label HorizontalOptions="Fill" Text="Second Secret"></Label>
-        <Entry Placeholder="Enter Second Secret (12 words)" Text="{Binding SecondSecret}" HorizontalOptions="Fill" ></Entry>
+        <Entry Placeholder="Enter Second Secret (12 words)" Text="{Binding SecondSecret}" HorizontalOptions="Fill" IsEnabled="{Binding IsEditable}" ></Entry>
       </StackLayout>
 
       <StackLayout Grid.Row="5" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
@@ -46,13 +46,13 @@
       </StackLayout>
 
       <StackLayout Grid.Row="6" HorizontalOptions="Fill">
-        <Label HorizontalOptions="Fill" Text="Address"></Label>
+        <Label HorizontalOptions="Fill" Text="AddressId"></Label>
         <Entry Placeholder="Click Generate button for address" Text="{Binding AddressId}" IsEnabled="False"  HorizontalOptions="Fill" ></Entry>
       </StackLayout>
 
       <StackLayout Grid.Row="7" Orientation="Horizontal" HorizontalOptions="Center" Padding="20">
         <Button Text="Clear" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Command="{Binding ClearCommand}"></Button>
-        <Button Text="Add" Command="{Binding AddAddressCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Button>
+        <Button Text="Save" Command="{Binding SaveAddressCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Button>
       </StackLayout>
     </Grid>
   </ScrollView>

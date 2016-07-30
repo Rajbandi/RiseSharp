@@ -4,7 +4,19 @@
              x:Class="RiseSharp.Mobile.App">
   <Application.Resources>
     <ResourceDictionary>
-   
+      <Style  x:Key="MenuBox" TargetType="Grid" >
+        <Setter Property="BackgroundColor" Value="#88336699"></Setter>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+        <Setter Property="VerticalOptions" Value="FillAndExpand"></Setter>
+        <Setter Property="Padding" Value="25"></Setter>
+      </Style>
+      <Style x:Key="MenuBoxContent" TargetType="StackLayout">
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+        <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+      </Style>
+      <Style x:Key="MenuBoxLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="White"></Setter>
+      </Style>
     </ResourceDictionary>
   </Application.Resources>
 </Application>

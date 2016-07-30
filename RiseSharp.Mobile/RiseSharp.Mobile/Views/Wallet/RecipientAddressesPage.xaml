@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:RiseSharp.Mobile.Controls;assembly=RiseSharp.Mobile"
+             x:Class="RiseSharp.Mobile.Views.Wallet.ReceipientAddressesPage" Title="{Binding Title}">
+   <Grid>
+    <controls:CustomListView x:Name="ReceipientAddressesList" ItemsSource="{Binding Addresses}" HasUnevenRows="True" 
+                             ItemClickCommand="{Binding SelectAddressCommand}" SelectedItem="{Binding SelectedAddress}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.ContextActions>
+              <MenuItem
+              Text="Edit" />
+              <MenuItem Text="Delete" IsDestructive="True" Command="{Binding DeleteAddressCommand}" ></MenuItem>
+            </ViewCell.ContextActions>
+            <Grid VerticalOptions="FillAndExpand" Padding="10"  >
+              <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" >
+                <Label  Text="{Binding Name}" FontAttributes="Bold" FontSize="20" />
+                <Label Text="{Binding Address}" FontAttributes="Bold" FontSize="20"/>
+              </StackLayout>
+            </Grid>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </controls:CustomListView>
+     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+       <Button Text="Add" Command="{Binding AddAddressCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Button>
+     </StackLayout>
+  </Grid>
+</ContentPage>

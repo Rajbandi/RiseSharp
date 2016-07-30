@@ -1,13 +1,12 @@
 ﻿#region copyright
-// <copyright file="TransactionSendViewModel.cs" >
+// <copyright file="transactionsendviewmodel.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
-// Licensed under MIT
+// Licensed under Apache 2.0
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>17/7/2016</date>
+// <date>28/7/2016</date>
 // <summary></summary>
 #endregion
-
 using System;
 using System.Collections.Generic;
 using RiseSharp.Mobile.Common;
@@ -25,19 +24,19 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
         private double _balance, _amount;
         public TransactionSendViewModel() : base(Constants.TransactionSend)
         {
-            SendCommand = new RelayCommand(() =>
+            SendCommand = new Command(() =>
             {
                 Send();
 
             }, () => CanSend);
 
-            ClearCommand = new RelayCommand(() =>
+            ClearCommand = new Command(() =>
             {
                 Clear();
 
             }, () => CanClear);
 
-            SelectReceipientCommand = new RelayCommand(() =>
+            SelectReceipientCommand = new Command(() =>
             {
                 SelectReceipient();
 
@@ -151,7 +150,7 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
             {
                 _canSend = value;
                 this.SetProperty(ref _canSend, value);
-                SendCommand.RaiseCanExecuteChanged();
+                SendCommand.ChangeCanExecute();
             }
         }
 
@@ -163,13 +162,13 @@ namespace RiseSharp.Mobile.ViewModels.Wallet
             {
                 _canClear = value;
                 this.SetProperty(ref _canClear, value);
-                ClearCommand.RaiseCanExecuteChanged();
+                ClearCommand.ChangeCanExecute();
             }
         }
 
-        public RelayCommand SendCommand { get; protected set; }
-        public RelayCommand ClearCommand { get; protected set; }
-        public RelayCommand SelectReceipientCommand { get; protected set; }
+        public Command SendCommand { get; protected set; }
+        public Command ClearCommand { get; protected set; }
+        public Command SelectReceipientCommand { get; protected set; }
         #endregion
     }
 }

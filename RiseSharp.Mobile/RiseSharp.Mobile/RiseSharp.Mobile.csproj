@@ -45,6 +45,7 @@
     <Compile Include="Controls\SvgImage.cs" />
     <Compile Include="Helpers\DataHelper.cs" />
     <Compile Include="Helpers\DialogHelper.cs" />
+    <Compile Include="Models\AddressMode.cs" />
     <Compile Include="Models\TransactionHistory.cs" />
     <Compile Include="Models\WalletAddress.cs" />
     <Compile Include="Models\MenuListItem.cs" />
@@ -70,7 +71,9 @@
     <Compile Include="ViewModels\PasswordViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\WalletViewModel.cs" />
-    <Compile Include="ViewModels\Wallet\AddWalletAddressViewModel.cs" />
+    <Compile Include="ViewModels\Wallet\AddEditWalletAddressViewModel.cs" />
+    <Compile Include="ViewModels\Wallet\RecipientAddressesViewModel.cs" />
+    <Compile Include="ViewModels\Wallet\AddRecipientAddressViewModel.cs" />
     <Compile Include="ViewModels\Wallet\TransactionDelegateViewModel.cs" />
     <Compile Include="ViewModels\Wallet\TransactionHistoryViewModel.cs" />
     <Compile Include="ViewModels\Wallet\TransactionReceiptAddressViewModel.cs" />
@@ -107,8 +110,14 @@
     <Compile Include="Views\WalletPage.xaml.cs">
       <DependentUpon>WalletPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Wallet\AddWalletAddressPage.xaml.cs">
-      <DependentUpon>AddWalletAddressPage.xaml</DependentUpon>
+    <Compile Include="Views\Wallet\AddRecipientAddressPage.xaml.cs">
+      <DependentUpon>AddRecipientAddressPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Wallet\AddEditWalletAddressPage.xaml.cs">
+      <DependentUpon>AddEditWalletAddressPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Wallet\RecipientAddressesPage.xaml.cs">
+      <DependentUpon>RecipientAddressesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Wallet\TransactionDelegatePage.xaml.cs">
       <DependentUpon>TransactionDelegatePage.xaml</DependentUpon>
@@ -312,7 +321,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Wallet\AddWalletAddressPage.xaml">
+    <EmbeddedResource Include="Views\Wallet\AddEditWalletAddressPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -343,6 +352,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Wallet\WalletAddressPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Wallet\RecipientAddressesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Wallet\AddRecipientAddressPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

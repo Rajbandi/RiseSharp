@@ -1,13 +1,12 @@
 ﻿#region copyright
-// <copyright file="App.xaml.cs" >
+// <copyright file="app.xaml.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
-// Licensed under MIT
+// Licensed under Apache 2.0
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>17/7/2016</date>
+// <date>28/7/2016</date>
 // <summary></summary>
 #endregion
-
 using Acr.UserDialogs;
 using RiseSharp.Mobile.Common;
 using RiseSharp.Mobile.Helpers;
@@ -38,7 +37,7 @@ namespace RiseSharp.Mobile
             SetIoc();
             RegisterViews();
             SubscribeMessages();
-            AppData.Settings.IsSecurityEnabled = true;
+            AppData.Settings.IsSecurityEnabled = false;
 
             var networkService = DependencyService.Get<INetworkService>();
             if (!networkService.IsConnected)
@@ -91,11 +90,13 @@ namespace RiseSharp.Mobile
             ViewFactory.Register<WalletAddressesPage, WalletAddressesViewModel>();
             ViewFactory.Register<TransactionSendPage, TransactionSendViewModel>();
             ViewFactory.Register<TransactionHistoryPage, TransactionHistoryViewModel>();
-            ViewFactory.Register<AddWalletAddressPage, AddWalletAddressViewModel>();
+            ViewFactory.Register<AddEditWalletAddressPage, AddEditWalletAddressViewModel>();
             ViewFactory.Register<TransactionReceiptAddressPage, TransactionReceiptAddressViewModel>();
             ViewFactory.Register<TransactionVotePage, TransactionVoteViewModel>();
             ViewFactory.Register<TransactionDelegatePage, TransactionDelegateViewModel>();
             ViewFactory.Register<WalletAddressPage, WalletAddressViewModel>();
+            ViewFactory.Register<ReceipientAddressesPage, RecipientAddressesViewModel>();
+            ViewFactory.Register<AddRecipientAddressPage, AddRecipientAddressViewModel>();
 
         }
 
@@ -105,6 +106,26 @@ namespace RiseSharp.Mobile
             {
                 var walletAddressPage = (Page)ViewFactory.CreatePage(typeof(WalletAddressViewModel));
                 ((WalletAddressViewModel)walletAddressPage.BindingContext).Address = address;
+                sender.Navigation.PushAsync(walletAddressPage);
+            });
+
+            MessagingCenter.Subscribe<WalletAddressesViewModel>(this, Constants.Add, (sender) =>
+            {
+                var walletAddressPage = (Page)ViewFactory.CreatePage(typeof(AddEditWalletAddressViewModel));
+                ((AddEditWalletAddressViewModel)walletAddressPage.BindingContext).Address = null;
+                sender.Navigation.PushAsync(walletAddressPage);
+            });
+
+            MessagingCenter.Subscribe<WalletAddressesViewModel, WalletAddress>(this, Constants.Edit, (sender,address) =>
+            {
+                var walletAddressPage = (Page)ViewFactory.CreatePage(typeof(AddEditWalletAddressViewModel));
+                ((AddEditWalletAddressViewModel) walletAddressPage.BindingContext).Address = address;
+                sender.Navigation.PushAsync(walletAddressPage);
+            });
+            MessagingCenter.Subscribe<RecipientAddressesViewModel>(this, Constants.Add, (sender) =>
+            {
+                var walletAddressPage = (Page)ViewFactory.CreatePage(typeof(AddRecipientAddressViewModel));
+                
                 sender.Navigation.PushAsync(walletAddressPage);
             });
 

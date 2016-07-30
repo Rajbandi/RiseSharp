@@ -1,6 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RiseSharp.Mobile.Views.DashboardPage" Title="{Binding Title}">
-  <Label Text="Main Panel" VerticalOptions="Center" HorizontalOptions="Center" />
+             x:Class="RiseSharp.Mobile.Views.DashboardPage" Title="{Binding Title}" >
+  <!--<Label Text="Main Panel" VerticalOptions="Center" HorizontalOptions="Center" />-->
+  <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="20" >
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="50*"></ColumnDefinition>
+      <ColumnDefinition Width="50*"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+    <Grid Grid.Row="0" Grid.Column="0" ColumnSpan="2" Style="{StaticResource MenuBox}">
+      <Grid >
+        <Grid.ColumnDefinitions >
+          <ColumnDefinition Width="50*"></ColumnDefinition>
+          <ColumnDefinition Width="50*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+      
+      <StackLayout Grid.Row="0" Grid.Column="0" Style="{StaticResource MenuBoxContent}">
+        <Label Text="My Wallet" Style="{StaticResource MenuBoxLabel}" > </Label>
+        <Label Text="" Style="{StaticResource MenuBoxLabel}" ></Label>
+        <Label Text="Addresses" Style="{StaticResource MenuBoxLabel}" ></Label>
+      </StackLayout>
+      <StackLayout Grid.Row="0" Grid.Column="1" Style="{StaticResource MenuBoxContent}">
+        <Label Text="My Wallet" Style="{StaticResource MenuBoxLabel}" > </Label>
+        <Label Text="" Style="{StaticResource MenuBoxLabel}" ></Label>
+        <Label Text="Addresses" Style="{StaticResource MenuBoxLabel}" ></Label>
+      </StackLayout>
+    </Grid>
+</Grid>
+<Grid Grid.Row="1" Grid.Column="0" Style="{StaticResource MenuBox}">
+    <StackLayout Style="{StaticResource MenuBoxContent}" >
+      <Label Text="Recipient" Style="{StaticResource MenuBoxLabel}"></Label>
+      <Label Text="" Style="{StaticResource MenuBoxLabel}"></Label>
+      <Label Text="Addresses" Style="{StaticResource MenuBoxLabel}"></Label>
+    </StackLayout>
+</Grid>
+<Grid Grid.Row="1" Grid.Column="1" Style="{StaticResource MenuBox}">
+    <StackLayout Style="{StaticResource MenuBoxContent}">
+      <Label Text="Total Rise" Style="{StaticResource MenuBoxLabel}"></Label>
+      <Label Text="" Style="{StaticResource MenuBoxLabel}"></Label>
+      <Label Text="Rise" Style="{StaticResource MenuBoxLabel}"></Label>
+    </StackLayout>
+</Grid>
+  </Grid>
+
 </ContentPage>

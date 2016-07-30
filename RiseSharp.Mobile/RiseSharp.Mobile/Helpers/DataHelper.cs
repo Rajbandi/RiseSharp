@@ -1,13 +1,12 @@
 ﻿#region copyright
 // <copyright file="DataHelper.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
-// Licensed under MIT
+// Licensed under Apache 2.0
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>17/7/2016</date>
+// <date>28/7/2016</date>
 // <summary></summary>
 #endregion
-
 using System;
 using System.Text;
 using System.Threading.Tasks;

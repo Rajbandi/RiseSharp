@@ -1,10 +1,10 @@
 ﻿#region copyright
 // <copyright file="WalletAddress.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
-// Licensed under MIT
+// Licensed under Apache 2.0
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>17/7/2016</date>
+// <date>28/7/2016</date>
 // <summary></summary>
 #endregion
 using System.Runtime.Serialization;
@@ -19,7 +19,7 @@ namespace RiseSharp.Mobile.Models
     {
         [PrimaryKey, AutoIncrement]
         [DataMember(Name = "id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [DataMember(Name = "name")]
         public string Name { get; set; }

@@ -1,10 +1,10 @@
 ﻿#region copyright
 // <copyright file="Constants.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
-// Licensed under MIT
+// Licensed under Apache 2.0
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>17/7/2016</date>
+// <date>28/7/2016</date>
 // <summary></summary>
 #endregion
 namespace RiseSharp.Mobile.Common
@@ -22,14 +22,19 @@ namespace RiseSharp.Mobile.Common
         public const string Settings = "Settings";
         public const string About = "About";
 
-        public const string WalletAddresses = "Addresses";
-        public const string WalletAddress = "Address";
+        public const string WalletAddresses = "My Wallet";
+        public const string RecipientAddresses = "Recipient";
+        public const string WalletAddress = "AddressId";
         public const string TransactionSend = "Send";
         public const string TransactionHistory = "History";
-        public const string AddWalletAddress = "Add Address";
+        public const string AddWalletAddress = "Add Wallet Address";
+        public const string AddRecipientAddress = "Add Recipient Address";
         public const string TransactionVote = "Vote";
         public const string TransactionDelegate = "Delegate";
-        public const string TransactionReceiptAddress = "Receiptient Address";
+        public const string TransactionReceiptAddress = "Recipient Address";
+
+        public const string Add = "Add";
+        public const string Edit = "Add";
 
         public const string Refresh = "Refresh";
 

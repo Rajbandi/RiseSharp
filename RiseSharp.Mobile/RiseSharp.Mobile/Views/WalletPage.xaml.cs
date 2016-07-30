@@ -1,14 +1,15 @@
 ﻿#region copyright
-// <copyright file="WalletPage.xaml.cs" >
+// <copyright file="walletpage.xaml.cs" >
 // Copyright (c) 2016 Raj Bandi All Rights Reserved
-// Licensed under MIT
+// Licensed under Apache 2.0
 // </copyright>
 // <author>Raj Bandi</author>
-// <date>17/7/2016</date>
+// <date>28/7/2016</date>
 // <summary></summary>
 #endregion
-
+using System;
 using RiseSharp.Mobile.Common;
+using RiseSharp.Mobile.ViewModels;
 using RiseSharp.Mobile.ViewModels.Wallet;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
@@ -17,7 +18,7 @@ namespace RiseSharp.Mobile.Views
 {
     public partial class WalletPage
     {
-        
+
         public WalletPage()
         {
             InitializeComponent();
@@ -30,19 +31,31 @@ namespace RiseSharp.Mobile.Views
 
         private void InitPages()
         {
-            var addWalletAddress = (Page)ViewFactory.CreatePage(typeof(AddWalletAddressViewModel));
             var walletAddresses = (Page)ViewFactory.CreatePage(typeof(WalletAddressesViewModel));
-            //var transactionSend = (Page)ViewFactory.CreatePage(typeof(TransactionSendViewModel));
-            var transactionHistory = (Page)ViewFactory.CreatePage(typeof(TransactionHistoryViewModel));
-            //var transactionVote = (Page) ViewFactory.CreatePage(typeof(TransactionVoteViewModel));
-            //var transactionDelegate = (Page)ViewFactory.CreatePage(typeof(TransactionDelegateViewModel));
+            var recipientAddreses = (Page)ViewFactory.CreatePage(typeof(RecipientAddressesViewModel));
 
             Children.Add(walletAddresses);
-       //     Children.Add(transactionSend);
-         //   Children.Add(transactionVote);
-            Children.Add(addWalletAddress);
-            Children.Add(transactionHistory);
-           // Children.Add(transactionDelegate);
+            Children.Add(recipientAddreses);
+
+        }
+
+        private void WalletPage_OnAppearing(object sender, EventArgs e)
+        {
+            var walletViewModel = (WalletViewModel)this.BindingContext;
+            if (walletViewModel != null)
+            {
+                walletViewModel.TabTitle = Children[0].Title;
+            }
+        }
+
+        private void WalletPage_OnCurrentPageChanged(object sender, EventArgs e)
+        {
+            var walletViewModel = (WalletViewModel)this.BindingContext;
+            if (walletViewModel != null)
+            {
+                walletViewModel.TabTitle = CurrentPage.Title;
+            }
+
         }
     }
 }
