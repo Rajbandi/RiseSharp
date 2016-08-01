@@ -210,15 +210,3 @@ IRisePeerApi  _api = new RisePeerApi(new ApiInfo
  var response = await _api.SendTransactionAsync(new Transaciton({ Type = TransactionType.Vote, ....});
  
 ```
-
-#### Donate 
-
-##### Bitcoin 
-
-1B7jF7NDfFSdToSiPvYWnHAxEUmNaMfYe 
-
-[![Bitcoin](http://i.imgur.com/3Cr4ymn.png)](http://i.imgur.com/3Cr4ymn.png)
-
-##### Rise 
-
-10432128511901446740R
